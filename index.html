@@ -1062,7 +1062,27 @@ function loadSaved(){
 
 function clearSaved(){
   try{localStorage.removeItem(SAVE_KEY);}catch(e){}
+  // Clear all text inputs and selects
+  ['studentName','la_s1','la_s2','la_s3','la_s4','la_s5',
+   'ra_q1','ra_q2','ra_q3','ra_q4','ra_q5','ra_q6',
+   'rb_s1','rb_s2','rb_s3','rb_s4','rb_s5','rb_s6',
+   'writingText'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.value='';
+  });
+  // Uncheck all radio buttons
+  document.querySelectorAll('input[type="radio"]').forEach(r=>{
+    r.checked=false;
+    r.closest('label').classList.remove('selected','selected-rub');
+  });
+  // Reset word count, rubric total, progress
+  updateWordCount();
+  updateRubric();
+  updateProgress();
   document.getElementById('savedBanner').style.display='none';
+  // Reset rubric total display
+  const rt=document.getElementById('rubricTotal');
+  if(rt)rt.textContent='0.0';
 }
 
 function flashToast(){
