@@ -3,20 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mock Test — Inglés Intermedio Intensivo INI5111</title>
+<title>Mock Test Written — INI5111 End of Term</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap');
-:root {
-  --primary:#4f46e5;--primary-light:#818cf8;--secondary:#7c3aed;
-  --accent:#06b6d4;--danger:#ef4444;--success:#10b981;
-  --warning:#f59e0b;--bg:#f1f5f9;--card:#ffffff;
-  --text:#1e293b;--muted:#64748b;--border:#e2e8f0;
-}
+:root{--primary:#4f46e5;--primary-light:#818cf8;--secondary:#7c3aed;--accent:#06b6d4;--danger:#ef4444;--success:#10b981;--warning:#f59e0b;--bg:#f1f5f9;--card:#ffffff;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 50%,#06b6d4 100%);min-height:100vh;padding:30px 15px;color:var(--text);}
 .container{background:var(--card);border-radius:20px;box-shadow:0 25px 60px rgba(79,70,229,.25);max-width:920px;margin:0 auto;overflow:hidden;}
-.header{background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:40px;text-align:center;color:white;}
+.header{background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:40px;text-align:center;color:#fff;}
 .header .logo{font-size:.75em;letter-spacing:4px;text-transform:uppercase;opacity:.8;margin-bottom:12px;}
 .header h1{font-family:'DM Serif Display',serif;font-size:2.2em;margin-bottom:8px;line-height:1.2;}
 .header p{opacity:.85;font-size:1em;font-weight:300;}
@@ -26,20 +20,19 @@ body{font-family:'DM Sans',sans-serif;background:linear-gradient(135deg,#4f46e5 
 .info-box{background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid var(--primary);border-radius:10px;padding:18px 22px;margin-bottom:30px;font-size:.9em;line-height:1.7;color:#1e40af;}
 .info-box ul{padding-left:18px;margin-top:6px;}
 .info-box li{margin-bottom:3px;}
-.toggle-lang{font-size:.78em;color:var(--primary);cursor:pointer;text-decoration:underline;margin-left:8px;user-select:none;}
-.lang-es{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed #bfdbfe;font-size:.88em;color:#1e40af;}
-#savedBanner{background:#ecfdf5;border:1px solid #6ee7b7;border-radius:10px;padding:12px 18px;margin-bottom:20px;font-size:.88em;color:#065f46;display:none;align-items:center;gap:10px;}
-#savedBanner button{margin-left:auto;background:none;border:1px solid #10b981;color:#065f46;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:.85em;white-space:nowrap;}
-.name-block{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:35px;}
+#savedBanner{background:#ecfdf5;border:1px solid #6ee7b7;border-radius:10px;padding:12px 18px;margin-bottom:20px;font-size:.88em;color:#065f46;display:none;align-items:center;gap:10px;flex-wrap:wrap;}
+#savedBanner button{margin-left:auto;background:none;border:1px solid #10b981;color:#065f46;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:.85em;white-space:nowrap;font-family:inherit;}
+.name-block{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:24px;}
 .name-block label{display:block;font-weight:600;margin-bottom:8px;color:var(--primary);font-size:.95em;}
 .name-block input{width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:1em;transition:border-color .2s;}
 .name-block input:focus{outline:none;border-color:var(--primary);}
-/* PROGRESS */
-.progress-wrap{margin-bottom:24px;}
-.progress-label{font-size:.82em;font-weight:600;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between;}
-.progress-bar{background:var(--border);border-radius:20px;height:8px;overflow:hidden;}
-#progressFill{height:100%;border-radius:20px;background:linear-gradient(90deg,#4f46e5,#7c3aed);transition:width .4s;}
-/* SECTIONS */
+/* progress */
+.progress-wrap{position:sticky;top:0;z-index:50;background:#fff;padding:10px 0 12px;margin-bottom:22px;border-bottom:1px solid var(--border);}
+.progress-track{height:10px;background:var(--border);border-radius:10px;overflow:hidden;}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--primary),var(--accent));transition:width .3s;}
+.progress-fill.complete{background:var(--success);}
+.progress-label{font-size:.8em;color:var(--muted);margin-top:6px;font-weight:600;text-align:right;}
+/* sections */
 .section{margin-bottom:40px;border-radius:14px;overflow:hidden;border:1px solid var(--border);}
 .section-header{padding:18px 24px;display:flex;align-items:center;gap:12px;}
 .section-header.listening{background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-bottom:1px solid #c4b5fd;}
@@ -47,1531 +40,929 @@ body{font-family:'DM Sans',sans-serif;background:linear-gradient(135deg,#4f46e5 
 .section-header.writing{background:linear-gradient(135deg,#fff1f2,#ffe4e6);border-bottom:1px solid #fca5a5;}
 .section-header .icon{font-size:1.5em;}
 .section-header h2{font-family:'DM Serif Display',serif;font-size:1.4em;color:var(--text);}
-.section-header .pts{margin-left:auto;background:white;border-radius:20px;padding:4px 14px;font-size:.82em;font-weight:600;color:var(--primary);white-space:nowrap;}
+.section-header .pts{margin-left:auto;background:#fff;border-radius:20px;padding:4px 14px;font-size:.82em;font-weight:600;color:var(--primary);white-space:nowrap;}
 .section-body{padding:28px;}
-.part-header{font-weight:700;font-size:1em;color:var(--secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;padding-bottom:8px;border-bottom:2px dashed #e9d5ff;}
+.part-header{font-weight:700;font-size:1em;color:var(--secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;padding-bottom:8px;border-bottom:2px dashed #e9d5ff;display:flex;gap:10px;flex-wrap:wrap;}
+.part-header .ptsmall{margin-left:auto;font-size:.85em;color:var(--muted);text-transform:none;letter-spacing:0;}
 .part-instructions{background:#fafafa;border-radius:8px;padding:12px 16px;font-size:.9em;color:var(--muted);margin-bottom:18px;line-height:1.6;}
+.es-toggle{display:inline-block;margin-top:8px;background:none;border:1px solid var(--border);border-radius:6px;padding:3px 10px;font-size:.82em;cursor:pointer;color:var(--primary);font-family:inherit;font-weight:600;}
+.es-box{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);color:#475569;}
+.es-box.open{display:block;}
 .part-divider{border:none;border-top:2px dashed var(--border);margin:28px 0;}
-/* AUDIO */
+/* audio */
 .audio-container{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:1px solid #c4b5fd;border-radius:12px;padding:18px 22px;margin-bottom:20px;}
 .audio-label{font-weight:600;color:var(--secondary);margin-bottom:10px;font-size:.95em;}
 audio{width:100%;border-radius:8px;margin-bottom:8px;}
-.play-counter{font-size:.82em;font-weight:600;color:var(--muted);background:white;display:inline-block;padding:4px 12px;border-radius:20px;border:1px solid var(--border);transition:color .2s,border-color .2s;}
+.play-counter{font-size:.82em;font-weight:600;color:var(--muted);background:#fff;display:inline-block;padding:4px 12px;border-radius:20px;border:1px solid var(--border);}
 .play-counter.warning{color:var(--warning);border-color:var(--warning);}
 .play-counter.limit{color:var(--danger);border-color:var(--danger);}
-/* MATCHING GRID - Listening A */
-.options-grid{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:20px;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;}
-.option-row{font-size:.9em;padding:4px 0;color:var(--text);}
-.option-row strong{color:var(--secondary);}
-.speaker-grid{display:grid;gap:10px;margin-top:4px;}
-.speaker-row{display:flex;align-items:center;gap:12px;background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:10px 14px;}
-.speaker-label{font-weight:600;font-size:.9em;color:var(--text);min-width:90px;}
-.speaker-row select{flex:1;padding:7px 10px;border:2px solid var(--border);border-radius:7px;font-family:'DM Sans',sans-serif;font-size:.9em;color:var(--text);background:white;cursor:pointer;}
-.speaker-row select:focus{outline:none;border-color:var(--primary);}
-/* MC OPTIONS */
-.interview-block{margin-bottom:22px;}
-.interview-label{font-weight:700;font-size:.92em;color:var(--primary);margin-bottom:10px;padding:6px 12px;background:#eff6ff;border-radius:6px;display:inline-block;}
-.q-block{margin-bottom:16px;}
+/* open questions */
+.q-block{margin-bottom:20px;}
 .q-label{display:flex;gap:8px;align-items:baseline;font-size:.93em;font-weight:600;margin-bottom:8px;color:var(--text);line-height:1.4;}
 .q-num{color:var(--secondary);min-width:22px;font-weight:700;}
 .q-pts{margin-left:auto;font-size:.82em;font-weight:600;color:var(--muted);white-space:nowrap;background:var(--bg);padding:2px 8px;border-radius:10px;}
-.mc-options{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
-label.mc-option{display:flex;align-items:center;gap:10px;padding:9px 14px;border:2px solid var(--border);border-radius:8px;cursor:pointer;font-size:.9em;transition:all .15s;background:white;}
-label.mc-option:hover{border-color:var(--primary-light);background:#f5f3ff;}
-label.mc-option input[type=radio]{accent-color:var(--primary);width:16px;height:16px;flex-shrink:0;}
-label.mc-option.selected{border-color:var(--primary);background:#eff6ff;}
-/* READING */
-.reading-text-box{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:22px;line-height:1.9;font-size:.95em;}
-.reading-text-box h4{text-align:center;font-family:'DM Serif Display',serif;font-size:1.15em;margin-bottom:6px;color:var(--text);}
-.reading-intro{text-align:center;font-style:italic;color:var(--muted);font-size:.88em;margin-bottom:18px;}
 .q-block textarea{width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.93em;color:var(--text);resize:vertical;min-height:68px;transition:border-color .2s;}
 .q-block textarea:focus{outline:none;border-color:var(--primary);}
-/* READING B MATCHING */
-.tips-box{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:20px;font-size:.88em;line-height:1.7;}
-.tip-item{margin-bottom:12px;}
-.tip-item strong{color:var(--secondary);}
-.situations-grid{display:grid;gap:10px;}
-.situation-row{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:12px 14px;display:flex;align-items:flex-start;gap:12px;}
-.sit-num{font-weight:700;color:var(--secondary);min-width:22px;margin-top:2px;}
-.sit-text{flex:1;font-size:.9em;line-height:1.5;}
-.sit-select{padding:7px 10px;border:2px solid var(--border);border-radius:7px;font-family:'DM Sans',sans-serif;font-size:.9em;background:white;cursor:pointer;min-width:60px;}
-.sit-select:focus{outline:none;border-color:var(--primary);}
-/* WRITING */
-.writing-task{background:#fff1f2;border:1px solid #fca5a5;border-radius:10px;padding:16px 20px;margin-bottom:18px;font-size:.9em;line-height:1.7;}
-.writing-task ul{padding-left:20px;margin-top:8px;}
-.writing-task li{margin-bottom:4px;}
-.writing-textarea{width:100%;min-height:200px;padding:14px;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.95em;line-height:1.7;resize:vertical;transition:border-color .2s;}
+.reading-text-box{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:22px;line-height:1.9;font-size:.95em;}
+.reading-text-box h4{text-align:center;font-family:'DM Serif Display',serif;font-size:1.15em;margin-bottom:6px;color:var(--text);}
+.reading-text-box p{margin-bottom:12px;}
+.reading-intro{text-align:center;font-style:italic;color:var(--muted);font-size:.9em;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+/* matching */
+.match-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);font-size:.93em;}
+.match-row:last-child{border-bottom:none;}
+.match-n{font-weight:700;color:var(--secondary);min-width:22px;}
+.match-q{flex:1;font-style:italic;color:var(--text);}
+.match-sel,.advice-select{padding:6px 10px;border:2px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.93em;font-weight:600;color:var(--text);background:#fff;cursor:pointer;min-width:68px;transition:border-color .2s;}
+.match-sel:focus,.advice-select:focus{outline:none;border-color:var(--primary);}
+.advice-table{width:100%;border-collapse:collapse;margin-bottom:12px;border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+.advice-table thead th{background:var(--primary);color:#fff;padding:10px 14px;font-size:.82em;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:left;}
+.advice-table tbody tr:nth-child(even) td{background:#f8fafc;}
+.advice-table td{padding:11px 14px;font-size:.93em;border-bottom:1px solid var(--border);vertical-align:middle;}
+.advice-table tr:last-child td{border-bottom:none;}
+.advice-letter{font-weight:700;color:var(--secondary);margin-right:6px;}
+.tips-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.tip-card{background:#f8fafc;border:1px solid var(--border);border-left:4px solid #3b82f6;border-radius:10px;padding:12px 16px;font-size:.9em;line-height:1.6;}
+.tip-card b{color:#1d4ed8;margin-right:6px;}
+/* MC */
+.interview-label{font-weight:700;color:var(--primary);font-size:.9em;margin:18px 0 8px;text-transform:uppercase;letter-spacing:.5px;}
+.mc-q{margin-bottom:16px;padding:14px 16px;border:1px solid var(--border);border-radius:10px;}
+.mc-stem{font-weight:600;font-size:.93em;margin-bottom:10px;line-height:1.4;}
+.mc-stem .q-num{margin-right:6px;}
+.mc-options{display:flex;flex-direction:column;gap:6px;}
+label.mc-option{display:flex;align-items:center;gap:10px;padding:9px 14px;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.92em;transition:all .15s;}
+label.mc-option:hover{border-color:var(--primary-light);background:#f5f3ff;}
+label.mc-option:has(input:checked){border-color:var(--primary);background:#eef2ff;font-weight:600;}
+label.mc-option input{accent-color:var(--primary);}
+/* writing */
+.writing-textarea{width:100%;min-height:220px;padding:16px;border:2px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.95em;line-height:1.7;resize:vertical;transition:border-color .2s;margin-top:12px;}
 .writing-textarea:focus{outline:none;border-color:var(--primary);}
-#wordCount{font-size:.82em;font-weight:600;margin-top:6px;display:inline-block;color:var(--danger);}
-/* GEMINI BUTTON */
-.gemini-btn{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#4285F4,#34A853);color:white;border:none;border-radius:10px;padding:12px 20px;font-family:'DM Sans',sans-serif;font-size:.92em;font-weight:600;cursor:pointer;margin:16px 0;transition:opacity .15s;}
-.gemini-btn:hover{opacity:.9;}
-.gemini-btn img{width:20px;height:20px;border-radius:3px;}
-/* RUBRIC */
-.rubric-box{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:20px;}
-.rubric-title{font-family:'DM Serif Display',serif;font-size:1.1em;color:var(--text);margin-bottom:6px;}
-.rubric-note{font-size:.82em;color:var(--muted);margin-bottom:18px;line-height:1.5;}
-.rubric-criterion{margin-bottom:20px;}
-.rubric-criterion-title{font-weight:700;font-size:.92em;color:var(--secondary);margin-bottom:10px;}
-.rub-options{display:flex;flex-direction:column;gap:6px;}
-.rub-options label{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:2px solid var(--border);border-radius:8px;cursor:pointer;transition:all .15s;background:white;}
-.rub-options label:hover{border-color:var(--primary-light);}
-.rub-options label.selected-rub{border-color:var(--primary);background:#eff6ff;}
-.rub-options input[type=radio]{margin-top:3px;accent-color:var(--primary);flex-shrink:0;}
-.rub-level{font-weight:700;font-size:.88em;color:var(--text);}
-.rub-pts{background:var(--primary);color:white;border-radius:10px;padding:1px 8px;font-size:.78em;margin-left:6px;}
-.rub-desc{font-size:.82em;color:var(--muted);margin-top:3px;line-height:1.4;}
-.check-icon{margin-left:auto;font-size:1.1em;opacity:0;}
-.rub-options label.selected-rub .check-icon{opacity:1;color:var(--primary);}
-.rubric-total{margin-top:16px;text-align:right;font-weight:700;font-size:.95em;color:var(--primary);}
-/* BLANK WARNING */
-#blankWarning{display:none;background:#fffbeb;border:2px solid var(--warning);border-radius:12px;padding:18px 22px;margin-bottom:20px;}
-#blankWarning strong{color:#92400e;display:block;margin-bottom:10px;}
-#blankList{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
-.blank-link{background:none;border:1px solid var(--warning);color:#92400e;padding:5px 12px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.85em;text-align:left;}
-.blank-link:hover{background:#fef3c7;}
-.dismiss-btn{background:var(--warning);color:white;border:none;border-radius:8px;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:.9em;font-weight:600;cursor:pointer;}
-/* CALCULATE */
-.calculate-btn{display:block;width:100%;padding:16px;background:linear-gradient(135deg,#10b981,#059669);color:white;border:none;border-radius:12px;font-family:'DM Serif Display',serif;font-size:1.15em;cursor:pointer;margin:30px 0 0;transition:all .2s;letter-spacing:.5px;}
+.word-counter{font-size:.85em;font-weight:600;color:var(--muted);margin-top:6px;text-align:right;}
+.word-counter.good{color:var(--success);}.word-counter.warn{color:var(--warning);}.word-counter.bad{color:var(--danger);}
+.guide-check{display:flex;flex-direction:column;gap:6px;margin:8px 0 4px;}
+.guide-check label{display:flex;gap:10px;align-items:center;font-size:.9em;padding:6px 10px;border:1px dashed var(--border);border-radius:8px;cursor:pointer;}
+.guide-check input{accent-color:var(--success);}
+.guide-note{font-size:.8em;color:var(--muted);margin-bottom:6px;}
+/* gemini */
+.gemini-btn{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;border:none;border-radius:10px;padding:12px 22px;font-family:'DM Sans',sans-serif;font-size:.92em;font-weight:600;cursor:pointer;margin-top:14px;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s,transform .1s;}
+.gemini-btn:hover{opacity:.9;transform:translateY(-1px);}
+.gemini-warn{display:none;margin-top:10px;background:#fff7ed;border:1px solid #fdba74;color:#9a3412;border-radius:8px;padding:10px 14px;font-size:.85em;}
+.gemini-warn.visible{display:block;}
+/* rubric */
+.rubric-box{margin-top:28px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.rubric-title{background:linear-gradient(135deg,#fff1f2,#ffe4e6);padding:14px 20px;font-weight:700;font-size:.95em;color:#be123c;border-bottom:1px solid #fca5a5;}
+.rubric-note{padding:10px 20px;font-size:.82em;color:var(--muted);background:#fafafa;border-bottom:1px solid var(--border);}
+.criterion{padding:18px 20px;border-bottom:1px solid var(--border);}
+.criterion h4{font-size:.93em;font-weight:700;margin-bottom:12px;color:var(--text);}
+.criterion-options{display:flex;flex-direction:column;gap:6px;}
+.criterion-options label{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.88em;line-height:1.4;transition:all .15s;position:relative;}
+.criterion-options label:hover{border-color:#fca5a5;background:#fff1f2;}
+.criterion-options label:has(input:checked){border:2px solid #ef4444;background:#fff1f2;}
+.criterion-options input[type=radio]{accent-color:#ef4444;flex-shrink:0;margin-top:3px;}
+.rub-level{font-weight:700;}
+.rub-pts{background:#fee2e2;color:#b91c1c;font-size:.8em;padding:1px 8px;border-radius:10px;margin-left:6px;}
+.rub-desc{font-size:.82em;color:var(--muted);margin-top:2px;font-weight:400;}
+.check-icon{margin-left:auto;color:#ef4444;font-weight:800;opacity:0;}
+.criterion-options label:has(input:checked) .check-icon{opacity:1;}
+.rubric-subtotal{background:#fdf2f8;padding:12px 20px;font-weight:700;font-size:.9em;color:var(--secondary);text-align:right;}
+/* blank warning */
+#blankWarning{display:none;background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;padding:16px 20px;margin-top:26px;font-size:.9em;color:#92400e;}
+#blankWarning ul{margin:8px 0 12px 18px;}
+.blank-link{background:none;border:none;color:#b45309;text-decoration:underline;cursor:pointer;font-family:inherit;font-size:.95em;padding:2px 0;}
+.dismiss-btn{background:#f59e0b;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-weight:600;cursor:pointer;font-family:inherit;}
+.calculate-btn{display:block;width:100%;background:linear-gradient(135deg,#10b981,#059669);color:#fff;border:none;border-radius:14px;padding:18px;font-family:'DM Serif Display',serif;font-size:1.3em;cursor:pointer;margin:30px 0 0;transition:all .2s;letter-spacing:.5px;}
 .calculate-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(16,185,129,.35);}
-/* RESULTS */
+/* results */
 #results{display:none;margin-top:30px;}
 .results-card{background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1px solid #6ee7b7;border-radius:16px;padding:30px;margin-bottom:24px;}
 .results-card h3{font-family:'DM Serif Display',serif;font-size:1.5em;color:#065f46;margin-bottom:20px;text-align:center;}
 .score-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #a7f3d0;font-size:.95em;}
-.score-row:last-child{border-bottom:none;font-weight:700;font-size:1.05em;}
-.grade-display{text-align:center;margin-top:20px;padding:20px;background:white;border-radius:12px;border:2px solid #10b981;}
-.grade-display .grade-number{font-family:'DM Serif Display',serif;font-size:3.5em;line-height:1;}
-.grade-display .grade-label{color:var(--muted);font-size:.85em;margin-top:4px;}
-.grade-display .grade-msg{font-size:.9em;margin-top:8px;font-weight:600;color:var(--text);}
-/* SUMMARY DOTS */
-.summary-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
-.summary-card{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;}
-.summary-card .s-title{font-weight:700;font-size:.82em;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
-.summary-card .s-score{font-family:'DM Serif Display',serif;font-size:1.5em;color:var(--primary);}
-.summary-card .s-dots{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:8px;}
-.dot{width:10px;height:10px;border-radius:50%;}
-.dot.ok{background:#10b981;}
-.dot.err{background:#ef4444;}
-.dot.pending{background:#d1d5db;}
-/* GEMINI BLOCK */
-.gemini-block{background:#fffbeb;border:2px solid #f59e0b;border-radius:14px;padding:24px;margin-bottom:24px;}
-.gemini-block-title{font-family:'DM Serif Display',serif;font-size:1.15em;color:#92400e;margin-bottom:6px;}
-.gemini-block-note{font-size:.85em;color:#b45309;margin-bottom:18px;line-height:1.5;}
-.ra-review-item{background:white;border:1px solid #fde68a;border-radius:10px;padding:14px 16px;margin-bottom:10px;}
-.ra-review-q{font-weight:700;font-size:.88em;color:var(--text);margin-bottom:6px;}
-.ra-review-student{font-size:.85em;color:var(--muted);margin-bottom:4px;}
-.ra-review-student span{color:var(--text);}
-.ra-review-model{font-size:.85em;color:#059669;font-weight:600;margin-bottom:8px;}
-.ra-score-row{display:flex;align-items:center;gap:10px;}
-.ra-score-row label{font-size:.82em;font-weight:600;color:#92400e;}
-.ra-score-row input{width:80px;padding:5px 8px;border:2px solid #f59e0b;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9em;}
-.gemini-done-banner{background:#f0fdf4;border:1px solid #6ee7b7;border-radius:12px;padding:16px 22px;font-size:.88em;color:#065f46;}
-/* FILTER TABS */
-.filter-tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
-.filter-tab{padding:7px 16px;border-radius:20px;border:2px solid var(--border);background:white;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.85em;font-weight:600;color:var(--muted);transition:all .15s;}
-.filter-tab.active{background:var(--primary);color:white;border-color:var(--primary);}
-/* FEEDBACK */
-.personalized-msg{padding:12px 16px;border-radius:10px;font-size:.88em;margin-bottom:14px;line-height:1.5;}
-.msg-great{background:#f0fdf4;border:1px solid #6ee7b7;color:#065f46;}
-.msg-good{background:#fffbeb;border:1px solid #fde68a;color:#92400e;}
-.msg-low{background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;}
+.score-row.total-row{border-bottom:none;font-weight:700;font-size:1.05em;}
+.score-val.pending{color:var(--muted);font-weight:500;}
+.grade-display{text-align:center;margin-top:20px;padding:20px;background:#fff;border-radius:12px;border:2px solid #10b981;}
+.grade-display .grade-val{display:block;font-family:'DM Serif Display',serif;font-size:3.2em;color:var(--primary);line-height:1.1;}
+.grade-display .grade-val.pending{font-size:1.5em;color:var(--muted);}
+.grade-display .grade-label{display:block;color:var(--muted);font-size:.85em;margin-bottom:4px;}
+.grade-display .grade-msg{font-size:.9em;margin-top:8px;font-weight:600;}
+.gemini-block{background:#faf5ff;border:1px solid #d8b4fe;border-radius:14px;padding:22px 24px;margin-bottom:22px;font-size:.9em;line-height:1.6;}
+.gemini-block h4{font-family:'DM Serif Display',serif;font-size:1.2em;margin-bottom:8px;color:var(--secondary);}
+.gr-row{display:flex;align-items:center;gap:10px;margin:8px 0;flex-wrap:wrap;}
+.gr-row label{min-width:190px;font-weight:600;}
+.gr-row input[type=number]{width:84px;padding:6px 10px;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-weight:600;text-align:center;}
+.gr-row input[type=number].locked{background:#f1f5f9;color:var(--muted);cursor:not-allowed;}
+.blank-badge{display:inline-block;background:#fee2e2;color:#b91c1c;font-size:.78em;font-weight:700;padding:3px 10px;border-radius:20px;margin-left:8px;}
+.gb-warn{display:none;margin-top:12px;background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:12px 14px;color:#92400e;}
+.final-btn{margin-top:16px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;border:none;border-radius:10px;padding:12px 22px;font-weight:700;font-family:inherit;cursor:pointer;}
+.mini-btn{background:#fff;border:1px solid var(--secondary);color:var(--secondary);border-radius:8px;padding:6px 12px;font-family:inherit;font-weight:600;cursor:pointer;font-size:.85em;margin-top:8px;}
+.partial-feedback-bar{background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:.88em;color:#92400e;display:none;}
+.partial-feedback-bar button{margin-top:8px;background:#f59e0b;color:#fff;border:none;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;font-family:inherit;}
+.summary-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:20px;}
+.summary-card{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:#fff;}
+.summary-card .sc-title{font-size:.8em;font-weight:700;color:var(--muted);}
+.summary-card .sc-score{font-family:'DM Serif Display',serif;font-size:1.4em;}
+.summary-card .sc-score.pending{color:var(--muted);}
+.summary-dots{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px;}
+.dot{width:14px;height:14px;border-radius:50%;}
+.dot.correct{background:var(--success);}.dot.incorrect{background:var(--danger);}.dot.partial{background:var(--warning);}
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+.filter-tab{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:#fff;cursor:pointer;font-family:inherit;font-size:.85em;font-weight:600;color:var(--muted);}
+.filter-tab.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+.section-feedback-msg{border-radius:10px;padding:14px 18px;margin-bottom:14px;font-size:.9em;line-height:1.6;}
+.section-feedback-msg.great{background:#ecfdf5;border:1px solid #6ee7b7;color:#065f46;}
+.section-feedback-msg.good{background:#fffbeb;border:1px solid #fcd34d;color:#92400e;}
+.section-feedback-msg.needswork{background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;}
+.msg-tips{margin:8px 0 0 18px;}
 .feedback-part{margin-bottom:20px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .feedback-part-header{padding:12px 18px;font-weight:700;font-size:.9em;display:flex;align-items:center;gap:8px;}
 .feedback-part-header.listening{background:#ede9fe;color:var(--secondary);}
 .feedback-part-header.reading{background:#dbeafe;color:#1d4ed8;}
-.feedback-item{padding:14px 18px;border-bottom:1px solid var(--border);font-size:.88em;line-height:1.5;}
+.feedback-part-header.writing{background:#ffe4e6;color:#be123c;}
+.feedback-item{padding:14px 18px;border-bottom:1px solid var(--border);font-size:.88em;line-height:1.55;}
 .feedback-item:last-child{border-bottom:none;}
-.feedback-item.hidden{display:none;}
-.fi-label{font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.fi-student{color:var(--muted);margin-bottom:2px;}
-.fi-correct{color:var(--success);font-weight:600;}
-.fi-model{color:#1d4ed8;font-weight:600;}
-.fi-tip{margin-top:5px;color:#64748b;font-style:italic;}
+.feedback-item .fq{font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.student-ans{color:var(--muted);}.correct-ans{color:var(--success);font-weight:600;}.suggested-ans{color:#1d4ed8;font-weight:600;}
+.explanation{margin-top:5px;color:#64748b;font-style:italic;}
 .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.8em;font-weight:700;}
-.tag.ok{background:#dcfce7;color:#15803d;}
-.tag.err{background:#fee2e2;color:#b91c1c;}
-.tag.info{background:#dbeafe;color:#1d4ed8;}
-/* PRINT */
-.print-btn{display:flex;align-items:center;gap:8px;background:var(--bg);border:2px solid var(--border);border-radius:8px;padding:8px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.85em;font-weight:600;color:var(--muted);margin-bottom:20px;}
-.print-btn:hover{border-color:var(--primary);color:var(--primary);}
-/* MODAL */
+.tag.correct-tag{background:#dcfce7;color:#15803d;}.tag.incorrect-tag{background:#fee2e2;color:#b91c1c;}.tag.info-tag{background:#dbeafe;color:#1d4ed8;}.tag.partial-tag{background:#fef3c7;color:#b45309;}
+details.fb-details{margin-top:8px;}
+details.fb-details summary{cursor:pointer;color:var(--primary);font-weight:600;}
+details.fb-details p{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-top:6px;white-space:pre-wrap;}
+/* modal */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
 .modal-overlay.active{display:flex;}
-.modal{background:white;border-radius:16px;padding:36px 32px;max-width:440px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(79,70,229,.25);}
-.modal-icon{font-size:48px;margin-bottom:14px;}
-.modal h3{font-family:'DM Serif Display',serif;font-size:1.5em;color:var(--text);margin-bottom:12px;}
-.modal p{font-size:.9em;color:var(--muted);margin-bottom:18px;line-height:1.6;text-align:left;}
-.modal-steps{text-align:left;margin-bottom:20px;}
-.modal-step{display:flex;gap:10px;margin-bottom:10px;font-size:.88em;line-height:1.4;}
-.modal-step-num{background:var(--primary);color:white;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8em;flex-shrink:0;margin-top:1px;}
+.modal{background:#fff;border-radius:16px;padding:32px 30px;max-width:460px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(79,70,229,.25);}
+.modal-icon{font-size:48px;margin-bottom:10px;display:block;}
+.modal h3{font-family:'DM Serif Display',serif;font-size:1.5em;margin-bottom:10px;}
+.modal p{font-size:.9em;color:var(--muted);margin-bottom:12px;line-height:1.6;}
+.modal ol{text-align:left;font-size:.9em;margin:0 0 20px 22px;line-height:1.7;}
 .modal-btns{display:flex;gap:12px;}
-.modal-btn{flex:1;padding:12px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.93em;font-weight:600;cursor:pointer;border:none;transition:opacity .15s;}
-.modal-btn:hover{opacity:.88;}
-.modal-btn.cancel{background:#f1f5f9;color:var(--muted);}
-.modal-btn.go{background:linear-gradient(135deg,#4285F4,#34A853);color:white;}
-/* TOAST */
-#saveToast{position:fixed;bottom:24px;right:24px;background:var(--success);color:white;padding:10px 20px;border-radius:50px;font-size:.85em;font-weight:600;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;z-index:1000;}
+.modal-btns button{flex:1;padding:12px;border-radius:8px;font-family:inherit;font-size:.93em;font-weight:600;cursor:pointer;border:none;background:#f1f5f9;color:var(--muted);}
+.modal-btns button:last-child{background:linear-gradient(135deg,#4285F4,#34A853);color:#fff;}
+#saveToast{position:fixed;bottom:24px;right:24px;background:#10b981;color:#fff;padding:10px 20px;border-radius:50px;font-size:.85em;font-weight:600;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;z-index:1000;}
 #saveToast.show{opacity:1;transform:translateY(0);}
-/* BOUNCE */
-@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
-/* RESPONSIVE */
-@media(max-width:768px){.content{padding:20px;}.header{padding:28px 20px;}.header h1{font-size:1.6em;}.section-body{padding:18px;}.score-pills{gap:8px;}.score-pill{font-size:.78em;padding:5px 12px;}.summary-cards{grid-template-columns:1fr 1fr;}.options-grid{grid-template-columns:1fr;}}
-@media print{body{background:white;padding:0;}.header{padding:20px;}.calculate-btn,.print-btn,.gemini-btn,.audio-container button,#blankWarning,#savedBanner,#saveToast,.modal-overlay,.filter-tabs{display:none!important;}.content{padding:20px;}.section{page-break-inside:avoid;}.feedback-item.hidden{display:block!important;}}
+@media (max-width:768px){.content{padding:20px;}.header{padding:28px 20px;}.header h1{font-size:1.6em;}.section-body{padding:18px;}.match-row{flex-wrap:wrap;}.gr-row label{min-width:100%;}}
 </style>
 </head>
 <body>
 <div class="container">
-
-<!-- HEADER -->
-<div class="header">
-  <div class="logo">DuocUC · INI5111 · Inglés Intermedio Intensivo</div>
-  <h1>End-of-Term Written Mock Test</h1>
-  <p>Simulación de prueba escrita de fin de semestre</p>
-  <div class="score-pills">
-    <span class="score-pill">🎧 Listening 12 pts</span>
-    <span class="score-pill">📖 Reading 12 pts</span>
-    <span class="score-pill">✍️ Writing 12 pts</span>
-    <span class="score-pill">⏱ 60 min</span>
+  <div class="header">
+    <div class="logo">Duoc UC · English</div>
+    <h1>Written Mock Test</h1>
+    <p>INI5111 · Intermedio Intensivo · End of Term (Files 7–12)</p>
+    <div class="score-pills">
+      <span class="score-pill">🎧 Listening 12 pts</span>
+      <span class="score-pill">📖 Reading 12 pts</span>
+      <span class="score-pill">✍️ Writing 12 pts</span>
+      <span class="score-pill">36 pts · 60 min</span>
+    </div>
   </div>
-</div>
 
-<div class="content">
-
-<!-- PROGRESS BAR -->
-<div class="progress-wrap">
-  <div class="progress-label">
-    <span>Progreso</span>
-    <span id="progressText">0%</span>
-  </div>
-  <div class="progress-bar"><div id="progressFill" style="width:0%"></div></div>
-</div>
-
-<!-- AUTOSAVE BANNER -->
-<div id="savedBanner">
-  💾 Tienes respuestas guardadas de una sesión anterior.
-  <button onclick="clearSaved()">Borrar respuestas guardadas</button>
-</div>
-
-<!-- INFO BOX -->
-<div class="info-box">
-  <strong>Directions <span class="toggle-lang" onclick="toggleLang('infoEs')">🌐 Ver en español</span></strong>
-  <ul>
-    <li>You have <strong>60 minutes</strong> to complete this mock test.</li>
-    <li>Audio files will be played <strong>twice</strong> (a counter shows how many times you have listened).</li>
-    <li>Read all questions carefully before answering.</li>
-    <li>Your answers are <strong>saved automatically</strong> as you type.</li>
-    <li>Open sections (Reading A and Writing) require <strong>Gemini AI feedback</strong> — buttons are provided.</li>
-    <li>Click <strong>Calcular mi nota</strong> when finished.</li>
-  </ul>
-  <div class="lang-es" id="infoEs">
-    <strong>Instrucciones:</strong>
-    <ul>
-      <li>Tienes <strong>60 minutos</strong> para completar este ensayo.</li>
-      <li>Los audios se reproducen <strong>dos veces</strong> (un contador indica cuántas veces has escuchado).</li>
-      <li>Lee todas las preguntas con atención antes de responder.</li>
-      <li>Tus respuestas se <strong>guardan automáticamente</strong> mientras escribes.</li>
-      <li>Las secciones abiertas (Reading A y Writing) requieren retroalimentación de <strong>Gemini IA</strong> — los botones están indicados.</li>
-      <li>Haz clic en <strong>Calcular mi nota</strong> cuando termines.</li>
-    </ul>
-  </div>
-</div>
-
-<!-- STUDENT NAME -->
-<div class="name-block">
-  <label for="studentName">Nombre completo</label>
-  <input type="text" id="studentName" placeholder="Escribe tu nombre aquí..." oninput="saveAll()">
-</div>
-
-<!-- ══════════════════════════════════════════════════════ -->
-<!--  LISTENING SECTION                                     -->
-<!-- ══════════════════════════════════════════════════════ -->
-<div class="section" id="listeningSection">
-  <div class="section-header listening">
-    <span class="icon">🎧</span>
-    <h2>Listening</h2>
-    <span class="pts">12 pts</span>
-  </div>
-  <div class="section-body">
-
-    <!-- PART A -->
-    <div class="part-header">Part A — Matching (5 pts)</div>
-    <div class="part-instructions">
-      Listen to five speakers talking about what makes them happy. Match each speaker to the correct answer (A–F). There is one extra answer you will not need. Select the correct letter for each speaker.
-      <span class="toggle-lang" onclick="toggleLang('laEs')">🌐 Ver en español</span>
-      <div class="lang-es" id="laEs">Escucha a cinco personas hablar sobre qué las hace felices. Relaciona cada persona con la respuesta correcta (A–F). Hay una respuesta extra que no necesitarás. Selecciona la letra correcta para cada speaker.</div>
+  <div class="content">
+    <div id="savedBanner">🗑️ Tienes respuestas guardadas.
+      <button onclick="clearAllAnswers()">Borrar y empezar de nuevo</button>
     </div>
 
-    <!-- Audio A -->
-    <div class="audio-container">
-      <div class="audio-label">🔊 Audio — Part A</div>
-      <audio id="audioLA" preload="metadata" playsinline controls onplay="trackPlay('audioLA')">
-        <source src="https://github.com/Moncholate/INI5111-End-of-Term-Written-Mock-Test/raw/refs/heads/main/Listening%20A.mp3" type="audio/mpeg">
-      </audio>
-      <div class="play-counter" id="counter_audioLA">Reproducciones: 0 / 2</div>
-    </div>
-
-    <!-- Options A–F -->
-    <div class="options-grid" id="mc-grid-la">
-      <div class="option-row"><strong>A.</strong> Taking care of my pets</div>
-      <div class="option-row"><strong>B.</strong> Spending time with family</div>
-      <div class="option-row"><strong>C.</strong> Going on trips alone</div>
-      <div class="option-row"><strong>D.</strong> Drawing and creating things</div>
-      <div class="option-row"><strong>E.</strong> Playing sports with friends</div>
-      <div class="option-row"><strong>F.</strong> Learning something new</div>
-    </div>
-
-    <!-- Speaker dropdowns -->
-    <div class="speaker-grid">
-      <div class="speaker-row">
-        <span class="speaker-label">Speaker 1</span>
-        <select id="la_s1" onchange="saveAll()">
-          <option value="">— Seleccionar —</option>
-          <option value="A">A — Taking care of my pets</option>
-          <option value="B">B — Spending time with family</option>
-          <option value="C">C — Going on trips alone</option>
-          <option value="D">D — Drawing and creating things</option>
-          <option value="E">E — Playing sports with friends</option>
-          <option value="F">F — Learning something new</option>
-        </select>
-      </div>
-      <div class="speaker-row">
-        <span class="speaker-label">Speaker 2</span>
-        <select id="la_s2" onchange="saveAll()">
-          <option value="">— Seleccionar —</option>
-          <option value="A">A — Taking care of my pets</option>
-          <option value="B">B — Spending time with family</option>
-          <option value="C">C — Going on trips alone</option>
-          <option value="D">D — Drawing and creating things</option>
-          <option value="E">E — Playing sports with friends</option>
-          <option value="F">F — Learning something new</option>
-        </select>
-      </div>
-      <div class="speaker-row">
-        <span class="speaker-label">Speaker 3</span>
-        <select id="la_s3" onchange="saveAll()">
-          <option value="">— Seleccionar —</option>
-          <option value="A">A — Taking care of my pets</option>
-          <option value="B">B — Spending time with family</option>
-          <option value="C">C — Going on trips alone</option>
-          <option value="D">D — Drawing and creating things</option>
-          <option value="E">E — Playing sports with friends</option>
-          <option value="F">F — Learning something new</option>
-        </select>
-      </div>
-      <div class="speaker-row">
-        <span class="speaker-label">Speaker 4</span>
-        <select id="la_s4" onchange="saveAll()">
-          <option value="">— Seleccionar —</option>
-          <option value="A">A — Taking care of my pets</option>
-          <option value="B">B — Spending time with family</option>
-          <option value="C">C — Going on trips alone</option>
-          <option value="D">D — Drawing and creating things</option>
-          <option value="E">E — Playing sports with friends</option>
-          <option value="F">F — Learning something new</option>
-        </select>
-      </div>
-      <div class="speaker-row">
-        <span class="speaker-label">Speaker 5</span>
-        <select id="la_s5" onchange="saveAll()">
-          <option value="">— Seleccionar —</option>
-          <option value="A">A — Taking care of my pets</option>
-          <option value="B">B — Spending time with family</option>
-          <option value="C">C — Going on trips alone</option>
-          <option value="D">D — Drawing and creating things</option>
-          <option value="E">E — Playing sports with friends</option>
-          <option value="F">F — Learning something new</option>
-        </select>
-      </div>
-    </div>
-
-    <hr class="part-divider">
-
-    <!-- PART B -->
-    <div class="part-header">Part B — Multiple Choice (7 pts)</div>
-    <div class="part-instructions">
-      Listen to five people being interviewed. Select the correct option to complete each sentence.
-      <span class="toggle-lang" onclick="toggleLang('lbEs')">🌐 Ver en español</span>
-      <div class="lang-es" id="lbEs">Escucha a cinco personas siendo entrevistadas. Selecciona la opción correcta para completar cada oración.</div>
-    </div>
-
-    <!-- Audio B -->
-    <div class="audio-container">
-      <div class="audio-label">🔊 Audio — Part B</div>
-      <audio id="audioLB" preload="metadata" playsinline controls onplay="trackPlay('audioLB')">
-        <source src="https://github.com/Moncholate/INI5111-End-of-Term-Written-Mock-Test/raw/refs/heads/main/Listening%20B.mp3" type="audio/mpeg">
-      </audio>
-      <div class="play-counter" id="counter_audioLB">Reproducciones: 0 / 2</div>
-    </div>
-
-    <!-- Interview 1 (Q1–Q2) -->
-    <div class="interview-block" id="lb_block_1">
-      <div class="interview-label">Interview 1 — Sofia</div>
-      <div class="q-block">
-        <div class="q-label"><span class="q-num">1.</span> Sofia has been a swimming coach…</div>
-        <div class="mc-options">
-          <label class="mc-option" for="lb_q1_a"><input type="radio" id="lb_q1_a" name="lb_q1" value="a" onchange="markSelected(this);saveAll()"> a) since 2019</label>
-          <label class="mc-option" for="lb_q1_b"><input type="radio" id="lb_q1_b" name="lb_q1" value="b" onchange="markSelected(this);saveAll()"> b) since she was 19 years old</label>
-          <label class="mc-option" for="lb_q1_c"><input type="radio" id="lb_q1_c" name="lb_q1" value="c" onchange="markSelected(this);saveAll()"> c) for 19 years</label>
-        </div>
-      </div>
-      <div class="q-block">
-        <div class="q-label"><span class="q-num">2.</span> Her cat's name is…</div>
-        <div class="mc-options">
-          <label class="mc-option" for="lb_q2_a"><input type="radio" id="lb_q2_a" name="lb_q2" value="a" onchange="markSelected(this);saveAll()"> a) Nemo</label>
-          <label class="mc-option" for="lb_q2_b"><input type="radio" id="lb_q2_b" name="lb_q2" value="b" onchange="markSelected(this);saveAll()"> b) Sunny</label>
-          <label class="mc-option" for="lb_q2_c"><input type="radio" id="lb_q2_c" name="lb_q2" value="c" onchange="markSelected(this);saveAll()"> c) Luna</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Interview 2 (Q3) -->
-    <div class="interview-block" id="lb_block_3">
-      <div class="interview-label">Interview 2 — Marco</div>
-      <div class="q-block">
-        <div class="q-label"><span class="q-num">3.</span> Sport Zone opened…</div>
-        <div class="mc-options">
-          <label class="mc-option" for="lb_q3_a"><input type="radio" id="lb_q3_a" name="lb_q3" value="a" onchange="markSelected(this);saveAll()"> a) three years ago</label>
-          <label class="mc-option" for="lb_q3_b"><input type="radio" id="lb_q3_b" name="lb_q3" value="b" onchange="markSelected(this);saveAll()"> b) five years ago</label>
-          <label class="mc-option" for="lb_q3_c"><input type="radio" id="lb_q3_c" name="lb_q3" value="c" onchange="markSelected(this);saveAll()"> c) last year</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Interview 3 (Q4) -->
-    <div class="interview-block" id="lb_block_4">
-      <div class="interview-label">Interview 3 — Ana</div>
-      <div class="q-block">
-        <div class="q-label"><span class="q-num">4.</span> Ana has been afraid of spiders…</div>
-        <div class="mc-options">
-          <label class="mc-option" for="lb_q4_a"><input type="radio" id="lb_q4_a" name="lb_q4" value="a" onchange="markSelected(this);saveAll()"> a) for two years</label>
-          <label class="mc-option" for="lb_q4_b"><input type="radio" id="lb_q4_b" name="lb_q4" value="b" onchange="markSelected(this);saveAll()"> b) since she was a child</label>
-          <label class="mc-option" for="lb_q4_c"><input type="radio" id="lb_q4_c" name="lb_q4" value="c" onchange="markSelected(this);saveAll()"> c) since last summer</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Interview 4 (Q5–Q6) -->
-    <div class="interview-block" id="lb_block_5">
-      <div class="interview-label">Interview 4 — Carlos</div>
-      <div class="q-block">
-        <div class="q-label"><span class="q-num">5.</span> Carlos has been a firefighter for…</div>
-        <div class="mc-options">
-          <label class="mc-option" for="lb_q5_a"><input type="radio" id="lb_q5_a" name="lb_q5" value="a" onchange="markSelected(this);saveAll()"> a) ten years</label>
-          <label class="mc-option" for="lb_q5_b"><input type="radio" id="lb_q5_b" name="lb_q5" value="b" onchange="markSelected(this);saveAll()"> b) two years</label>
-          <label class="mc-option" for="lb_q5_c"><input type="radio" id="lb_q5_c" name="lb_q5" value="c" onchange="markSelected(this);saveAll()"> c) eight years</label>
-        </div>
-      </div>
-      <div class="q-block">
-        <div class="q-label"><span class="q-num">6.</span> Two years ago, Carlos became a…</div>
-        <div class="mc-options">
-          <label class="mc-option" for="lb_q6_a"><input type="radio" id="lb_q6_a" name="lb_q6" value="a" onchange="markSelected(this);saveAll()"> a) fire rescue specialist</label>
-          <label class="mc-option" for="lb_q6_b"><input type="radio" id="lb_q6_b" name="lb_q6" value="b" onchange="markSelected(this);saveAll()"> b) firefighter</label>
-          <label class="mc-option" for="lb_q6_c"><input type="radio" id="lb_q6_c" name="lb_q6" value="c" onchange="markSelected(this);saveAll()"> c) team leader</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Interview 5 (Q7) -->
-    <div class="interview-block" id="lb_block_7">
-      <div class="interview-label">Interview 5 — Paula</div>
-      <div class="q-block">
-        <div class="q-label"><span class="q-num">7.</span> Paula has been in the city…</div>
-        <div class="mc-options">
-          <label class="mc-option" for="lb_q7_a"><input type="radio" id="lb_q7_a" name="lb_q7" value="a" onchange="markSelected(this);saveAll()"> a) for a week</label>
-          <label class="mc-option" for="lb_q7_b"><input type="radio" id="lb_q7_b" name="lb_q7" value="b" onchange="markSelected(this);saveAll()"> b) for three days</label>
-          <label class="mc-option" for="lb_q7_c"><input type="radio" id="lb_q7_c" name="lb_q7" value="c" onchange="markSelected(this);saveAll()"> c) since Monday</label>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /section-body -->
-</div><!-- /listening section -->
-
-
-<!-- ══════════════════════════════════════════════════════ -->
-<!--  READING SECTION                                       -->
-<!-- ══════════════════════════════════════════════════════ -->
-<div class="section" id="readingSection">
-  <div class="section-header reading">
-    <span class="icon">📖</span>
-    <h2>Reading</h2>
-    <span class="pts">12 pts</span>
-  </div>
-  <div class="section-body">
-
-    <!-- PART A -->
-    <div class="part-header">Part A — Open Questions (6 pts)</div>
-    <div class="part-instructions">
-      Read the text below and answer the questions. Write your answers in English.
-      <span class="toggle-lang" onclick="toggleLang('raEs')">🌐 Ver en español</span>
-      <div class="lang-es" id="raEs">Lee el texto a continuación y responde las preguntas. Escribe tus respuestas en inglés.</div>
-    </div>
-
-    <!-- Reading Text -->
-    <div class="reading-text-box">
-      <h4>A New Life in Madrid</h4>
-      <div class="reading-intro">by Lucas Mendoza</div>
-      <p>When my family moved to Madrid, Spain, I was fourteen years old. My new school was enormous — more than 800 students and 35 children in each class. It was always very noisy, and the cold weather was hard for me too. At lunchtime, all the students ate together in a big cafeteria. I used to feel very lost there because I didn't know where to sit or who to talk to. Everything felt confusing and a little scary.</p>
-      <br>
-      <p>Back in Ecuador, where I grew up, life was very different. My school was small — only 20 students in my class and I knew everyone very well. My teachers had known me for years and I was good at most subjects. I used to feel very confident and comfortable at school. In my free time, I used to play football on the beach with my friends almost every afternoon. We also used to go swimming in the sea after school. I loved living there.</p>
-      <br>
-      <p>Not everything in Madrid was difficult, though. I used to enjoy Physical Education class a lot because the teacher was very kind and encouraging. She noticed that I was good at sports and invited me to join the school basketball team. That helped me make new friends and I started to feel better about my new life. I also liked my Spanish Literature class very much. I was already a good reader and the teacher always gave me very positive marks on my written work. Those two subjects really helped me feel at home.</p>
-    </div>
-
-    <!-- Open Questions -->
-    <div class="q-block" id="ra-row-1">
-      <div class="q-label"><span class="q-num">1.</span> How was Lucas's new school in Madrid? Give two details. <span class="q-pts">1 pt</span></div>
-      <textarea id="ra_q1" rows="2" placeholder="Write your answer here..." oninput="saveAll()"></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-num">2.</span> Why did Lucas use to feel lost at lunchtime in Madrid? <span class="q-pts">1 pt</span></div>
-      <textarea id="ra_q2" rows="2" placeholder="Write your answer here..." oninput="saveAll()"></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-num">3.</span> Describe Lucas's school in Ecuador. Why did he feel comfortable there? <span class="q-pts">1 pt</span></div>
-      <textarea id="ra_q3" rows="2" placeholder="Write your answer here..." oninput="saveAll()"></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-num">4.</span> Name two activities Lucas used to do with his friends in Ecuador. <span class="q-pts">1 pt</span></div>
-      <textarea id="ra_q4" rows="2" placeholder="Write your answer here..." oninput="saveAll()"></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-num">5.</span> How did Lucas's PE teacher help him at his new school in Madrid? <span class="q-pts">1 pt</span></div>
-      <textarea id="ra_q5" rows="2" placeholder="Write your answer here..." oninput="saveAll()"></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-num">6.</span> Why was Lucas good at Spanish Literature? <span class="q-pts">1 pt</span></div>
-      <textarea id="ra_q6" rows="2" placeholder="Write your answer here..." oninput="saveAll()"></textarea>
-    </div>
-
-    <hr class="part-divider">
-
-    <!-- PART B -->
-    <div class="part-header">Part B — Matching (6 pts)</div>
-    <div class="part-instructions">
-      Read each situation (1–6) and match it with the correct tip or advice (a–g). There is one tip you will not need. Select the correct letter for each situation.
-      <span class="toggle-lang" onclick="toggleLang('rbEs')">🌐 Ver en español</span>
-      <div class="lang-es" id="rbEs">Lee cada situación (1–6) y relaciónala con el consejo correcto (a–g). Hay un consejo que no necesitarás. Selecciona la letra correcta para cada situación.</div>
-    </div>
-
-    <!-- Tips a–g -->
-    <div class="tips-box">
-      <strong>Tips (a–g)</strong>
-      <br><br>
-      <div class="tip-item"><strong>a)</strong> You should try to study a little every day instead of studying everything at once. Make sure you take short breaks and try to go to bed at a regular time. A good night's sleep before an exam is very important. Don't forget to eat well too.</div>
-      <div class="tip-item"><strong>b)</strong> You should start with small changes. Try to walk for 30 minutes every day and drink more water. You don't need to go to a gym — just moving more is a great start. You should also try to eat more fruit and vegetables every day.</div>
-      <div class="tip-item"><strong>c)</strong> You should be patient with yourself — it is normal to feel nervous at the beginning. Try to smile and say hello to your colleagues every day. You should also ask questions when you don't understand something. People are usually happy to help new team members.</div>
-      <div class="tip-item"><strong>d)</strong> You should talk to your friend as soon as possible. Send them a message and tell them you want to fix things. It is important to listen to their feelings too, not only yours. A good friendship is worth a difficult conversation.</div>
-      <div class="tip-item"><strong>e)</strong> You should start with simple recipes and practice every weekend. Try to cook different things — pasta, rice, soup. Cooking at home is cheaper and healthier than eating out. You can also watch videos online to learn new techniques.</div>
-      <div class="tip-item"><strong>f)</strong> You should check all the places you visited yesterday. If you can't find it, call your phone from another phone — someone may answer. You should also tell your family so they know how to contact you. Try not to worry too much.</div>
-      <div class="tip-item"><strong>g)</strong> You should try to practice a little every day, even just for 15 minutes. Use an app on your computer or watch short videos in that language. You don't need hours of free time — small moments every day can help a lot. The most important thing is to be consistent.</div>
-    </div>
-
-    <!-- Situations + selects -->
-    <div class="situations-grid" id="rb_q1">
-      <div class="situation-row">
-        <span class="sit-num">1.</span>
-        <span class="sit-text">"I want to get healthier but I don't know where to start. I don't have much money and I can't go to a gym."</span>
-        <select id="rb_s1" class="sit-select" onchange="saveAll()">
-          <option value="">—</option>
-          <option value="a">a</option><option value="b">b</option><option value="c">c</option>
-          <option value="d">d</option><option value="e">e</option><option value="f">f</option><option value="g">g</option>
-        </select>
-      </div>
-      <div class="situation-row">
-        <span class="sit-num">2.</span>
-        <span class="sit-text">"I had an argument with my best friend and now we are not talking. I feel terrible about it."</span>
-        <select id="rb_s2" class="sit-select" onchange="saveAll()">
-          <option value="">—</option>
-          <option value="a">a</option><option value="b">b</option><option value="c">c</option>
-          <option value="d">d</option><option value="e">e</option><option value="f">f</option><option value="g">g</option>
-        </select>
-      </div>
-      <div class="situation-row">
-        <span class="sit-num">3.</span>
-        <span class="sit-text">"I am very stressed about my exams next week and I can't sleep at night. I don't know how to feel better."</span>
-        <select id="rb_s3" class="sit-select" onchange="saveAll()">
-          <option value="">—</option>
-          <option value="a">a</option><option value="b">b</option><option value="c">c</option>
-          <option value="d">d</option><option value="e">e</option><option value="f">f</option><option value="g">g</option>
-        </select>
-      </div>
-      <div class="situation-row">
-        <span class="sit-num">4.</span>
-        <span class="sit-text">"I want to learn a new language but I don't have much free time. I work every day and I get home very tired."</span>
-        <select id="rb_s4" class="sit-select" onchange="saveAll()">
-          <option value="">—</option>
-          <option value="a">a</option><option value="b">b</option><option value="c">c</option>
-          <option value="d">d</option><option value="e">e</option><option value="f">f</option><option value="g">g</option>
-        </select>
-      </div>
-      <div class="situation-row">
-        <span class="sit-num">5.</span>
-        <span class="sit-text">"I started a new job last week and I feel very nervous around my new colleagues. I don't know how to talk to them."</span>
-        <select id="rb_s5" class="sit-select" onchange="saveAll()">
-          <option value="">—</option>
-          <option value="a">a</option><option value="b">b</option><option value="c">c</option>
-          <option value="d">d</option><option value="e">e</option><option value="f">f</option><option value="g">g</option>
-        </select>
-      </div>
-      <div class="situation-row">
-        <span class="sit-num">6.</span>
-        <span class="sit-text">"I lost my phone yesterday and I feel very worried. I don't know what to do."</span>
-        <select id="rb_s6" class="sit-select" onchange="saveAll()">
-          <option value="">—</option>
-          <option value="a">a</option><option value="b">b</option><option value="c">c</option>
-          <option value="d">d</option><option value="e">e</option><option value="f">f</option><option value="g">g</option>
-        </select>
-      </div>
-    </div>
-
-  </div><!-- /section-body -->
-</div><!-- /reading section -->
-
-
-<!-- ══════════════════════════════════════════════════════ -->
-<!--  WRITING SECTION                                       -->
-<!-- ══════════════════════════════════════════════════════ -->
-<div class="section" id="writingSection">
-  <div class="section-header writing">
-    <span class="icon">✍️</span>
-    <h2>Writing</h2>
-    <span class="pts">12 pts</span>
-  </div>
-  <div class="section-body">
-
-    <div class="part-instructions">
-      Think about someone important in your life — a family member, a teacher, a friend, or a neighbor. Write about that person. Your text should be at least <strong>80 words</strong>. Use tenses accordingly.
-      <span class="toggle-lang" onclick="toggleLang('wEs')">🌐 Ver en español</span>
-      <div class="lang-es" id="wEs">Piensa en alguien importante en tu vida — un familiar, un profesor, un amigo o un vecino. Escribe sobre esa persona. Tu texto debe tener al menos <strong>80 palabras</strong>. Usa los tiempos verbales correctamente.</div>
-    </div>
-
-    <div class="writing-task">
-      <strong>Consider:</strong>
+    <div class="info-box">
+      <strong>DIRECTIONS</strong>
       <ul>
-        <li>Where they were born and where they grew up.</li>
-        <li>What their life was like when they were young.</li>
-        <li>Their education and jobs.</li>
-        <li>An important event or achievement in their life.</li>
-        <li>What their life is like now.</li>
+        <li>You have 60 minutes to complete the test.</li>
+        <li>The audio files can be played twice.</li>
+        <li>Read the questions before you answer them.</li>
+        <li>Complete the test individually. Your answers are saved automatically.</li>
       </ul>
+      <button class="es-toggle" onclick="toggleEs('es-directions')">🌐 Ver en español</button>
+      <div class="es-box" id="es-directions">
+        <strong>INSTRUCCIONES</strong>
+        <ul>
+          <li>Tienes 60 minutos para completar la prueba.</li>
+          <li>Los audios se pueden reproducir dos veces.</li>
+          <li>Lee las preguntas antes de responderlas.</li>
+          <li>Realiza la prueba de forma individual. Tus respuestas se guardan automáticamente.</li>
+        </ul>
+      </div>
     </div>
 
-    <textarea id="writingText" class="writing-textarea" placeholder="Write your text here..." oninput="updateWordCount();saveAll()"></textarea>
-    <div id="wordCount">Palabras: 0 / mínimo 80</div>
-
-    <!-- Gemini Button Writing -->
-    <button class="gemini-btn" onclick="copyForGemini('writing')">
-      <span>🤖</span> Copiar prompt de evaluación Gemini — Writing
-    </button>
-
-    <!-- Rubric -->
-    <div class="rubric-box">
-      <div class="rubric-title">Rúbrica de Writing</div>
-      <div class="rubric-note">Completa esta rúbrica usando la evaluación por criterio que te entregó Gemini. Selecciona el nivel que Gemini indicó para cada criterio.</div>
-
-      <!-- Criterion 1 -->
-      <div class="rubric-criterion" id="rub_block_1">
-        <div class="rubric-criterion-title">1. Coherencia y extensión</div>
-        <div class="rub-options">
-          <label for="r1a" onchange="updateRubric();saveAll()">
-            <input type="radio" id="r1a" name="rub1" value="4">
-            <div><div class="rub-level">Totalmente Logrado <span class="rub-pts">4 pts</span></div>
-            <div class="rub-desc">Mínimo 80 palabras, todas las ideas requeridas, coherente con el estímulo.</div></div>
-            <span class="check-icon">✓</span>
-          </label>
-          <label for="r1b" onchange="updateRubric();saveAll()">
-            <input type="radio" id="r1b" name="rub1" value="3.2">
-            <div><div class="rub-level">Logrado <span class="rub-pts">3.2 pts</span></div>
-            <div class="rub-desc">Entre 60–79 palabras, todas las ideas, coherente.</div></div>
-            <span class="check-icon">✓</span>
-          </label>
-          <label for="r1c" onchange="updateRubric();saveAll()">
-            <input type="radio" id="r1c" name="rub1" value="2.4">
-            <div><div class="rub-level">Parcialmente Logrado <span class="rub-pts">2.4 pts</span></div>
-            <div class="rub-desc">Entre 40–59 palabras, cobertura parcial o alguna idea incoherente.</div></div>
-            <span class="check-icon">✓</span>
-          </label>
-          <label for="r1d" onchange="updateRubric();saveAll()">
-            <input type="radio" id="r1d" name="rub1" value="1.2">
-            <div><div class="rub-level">Insuficientemente Logrado <span class="rub-pts">1.2 pts</span></div>
-            <div class="rub-desc">Entre 20–39 palabras, baja cobertura o incoherencia general.</div></div>
-            <span class="check-icon">✓</span>
-          </label>
-          <label for="r1e" onchange="updateRubric();saveAll()">
-            <input type="radio" id="r1e" name="rub1" value="0">
-            <div><div class="rub-level">No Logrado <span class="rub-pts">0 pts</span></div>
-            <div class="rub-desc">Menos de 20 palabras o sin relación con el estímulo.</div></div>
-            <span class="check-icon">✓</span>
-          </label>
-        </div>
-      </div>
-
-      <!-- Criterion 2 -->
-      <div class="rubric-criterion" id="rub_block_2">
-        <div class="rubric-criterion-title">2. Vocabulario</div>
-        <div class="rub-options">
-          <label for="r2a" onchange="updateRubric();saveAll()"><input type="radio" id="r2a" name="rub2" value="3"><div><div class="rub-level">Totalmente Logrado <span class="rub-pts">3 pts</span></div><div class="rub-desc">6 o más palabras del vocabulario aprendido usadas correctamente.</div></div><span class="check-icon">✓</span></label>
-          <label for="r2b" onchange="updateRubric();saveAll()"><input type="radio" id="r2b" name="rub2" value="2.4"><div><div class="rub-level">Logrado <span class="rub-pts">2.4 pts</span></div><div class="rub-desc">Al menos 5 palabras correctas en contextos adecuados.</div></div><span class="check-icon">✓</span></label>
-          <label for="r2c" onchange="updateRubric();saveAll()"><input type="radio" id="r2c" name="rub2" value="1.8"><div><div class="rub-level">Parcialmente Logrado <span class="rub-pts">1.8 pts</span></div><div class="rub-desc">Al menos 4 palabras correctas en contextos adecuados.</div></div><span class="check-icon">✓</span></label>
-          <label for="r2d" onchange="updateRubric();saveAll()"><input type="radio" id="r2d" name="rub2" value="0.9"><div><div class="rub-level">Insuficientemente Logrado <span class="rub-pts">0.9 pts</span></div><div class="rub-desc">Al menos 3 palabras correctas en contextos adecuados.</div></div><span class="check-icon">✓</span></label>
-          <label for="r2e" onchange="updateRubric();saveAll()"><input type="radio" id="r2e" name="rub2" value="0"><div><div class="rub-level">No Logrado <span class="rub-pts">0 pts</span></div><div class="rub-desc">2 o menos palabras correctas o vocabulario incorrecto.</div></div><span class="check-icon">✓</span></label>
-        </div>
-      </div>
-
-      <!-- Criterion 3 -->
-      <div class="rubric-criterion" id="rub_block_3">
-        <div class="rubric-criterion-title">3. Gramática</div>
-        <div class="rub-options">
-          <label for="r3a" onchange="updateRubric();saveAll()"><input type="radio" id="r3a" name="rub3" value="3"><div><div class="rub-level">Totalmente Logrado <span class="rub-pts">3 pts</span></div><div class="rub-desc">Oraciones correctas, máximo 1 error sin impacto en comprensión.</div></div><span class="check-icon">✓</span></label>
-          <label for="r3b" onchange="updateRubric();saveAll()"><input type="radio" id="r3b" name="rub3" value="2.4"><div><div class="rub-level">Logrado <span class="rub-pts">2.4 pts</span></div><div class="rub-desc">Mayoría correctas, entre 2–3 errores sin impacto en comprensión.</div></div><span class="check-icon">✓</span></label>
-          <label for="r3c" onchange="updateRubric();saveAll()"><input type="radio" id="r3c" name="rub3" value="1.8"><div><div class="rub-level">Parcialmente Logrado <span class="rub-pts">1.8 pts</span></div><div class="rub-desc">Entre 4–5 errores que dificultan parcialmente la comprensión.</div></div><span class="check-icon">✓</span></label>
-          <label for="r3d" onchange="updateRubric();saveAll()"><input type="radio" id="r3d" name="rub3" value="0.9"><div><div class="rub-level">Insuficientemente Logrado <span class="rub-pts">0.9 pts</span></div><div class="rub-desc">Entre 6–7 errores que dificultan significativamente la comprensión.</div></div><span class="check-icon">✓</span></label>
-          <label for="r3e" onchange="updateRubric();saveAll()"><input type="radio" id="r3e" name="rub3" value="0"><div><div class="rub-level">No Logrado <span class="rub-pts">0 pts</span></div><div class="rub-desc">8 o más errores que impiden la comprensión.</div></div><span class="check-icon">✓</span></label>
-        </div>
-      </div>
-
-      <!-- Criterion 4 -->
-      <div class="rubric-criterion" id="rub_block_4">
-        <div class="rubric-criterion-title">4. Ortografía</div>
-        <div class="rub-options">
-          <label for="r4a" onchange="updateRubric();saveAll()"><input type="radio" id="r4a" name="rub4" value="2"><div><div class="rub-level">Totalmente Logrado <span class="rub-pts">2 pts</span></div><div class="rub-desc">Máximo 2 errores ortográficos sin impacto en comprensión.</div></div><span class="check-icon">✓</span></label>
-          <label for="r4b" onchange="updateRubric();saveAll()"><input type="radio" id="r4b" name="rub4" value="1.6"><div><div class="rub-level">Logrado <span class="rub-pts">1.6 pts</span></div><div class="rub-desc">Entre 3–4 errores, mensaje comprensible.</div></div><span class="check-icon">✓</span></label>
-          <label for="r4c" onchange="updateRubric();saveAll()"><input type="radio" id="r4c" name="rub4" value="1.2"><div><div class="rub-level">Parcialmente Logrado <span class="rub-pts">1.2 pts</span></div><div class="rub-desc">Entre 5–6 errores que afectan parcialmente el mensaje.</div></div><span class="check-icon">✓</span></label>
-          <label for="r4d" onchange="updateRubric();saveAll()"><input type="radio" id="r4d" name="rub4" value="0.6"><div><div class="rub-level">Insuficientemente Logrado <span class="rub-pts">0.6 pts</span></div><div class="rub-desc">Entre 7–8 errores que dificultan significativamente la comprensión.</div></div><span class="check-icon">✓</span></label>
-          <label for="r4e" onchange="updateRubric();saveAll()"><input type="radio" id="r4e" name="rub4" value="0"><div><div class="rub-level">No Logrado <span class="rub-pts">0 pts</span></div><div class="rub-desc">9 o más errores que impiden la comprensión.</div></div><span class="check-icon">✓</span></label>
-        </div>
-      </div>
-
-      <div class="rubric-total">Puntaje Writing: <span id="rubricTotal">0.0</span> / 12 pts</div>
+    <div class="name-block">
+      <label for="studentName">👤 Tu nombre</label>
+      <input type="text" id="studentName" placeholder="Escribe tu nombre" oninput="saveAll()">
     </div>
 
-  </div><!-- /section-body -->
-</div><!-- /writing section -->
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">0 de 29 preguntas respondidas</div>
+    </div>
 
+    <!-- ================= LISTENING ================= -->
+    <div class="section" id="listeningSection">
+      <div class="section-header listening"><span class="icon">🎧</span><h2>I. Listening</h2><span class="pts">12 points</span></div>
+      <div class="section-body">
 
-<!-- ══════════════════════════════════════════════════════ -->
-<!--  BLANK WARNING + CALCULATE                             -->
-<!-- ══════════════════════════════════════════════════════ -->
-<div id="blankWarning">
-  <strong>⚠️ Hay preguntas sin responder:</strong>
-  <ul id="blankList"></ul>
-  <button class="dismiss-btn" onclick="document.getElementById('blankWarning').style.display='none';calculateFinalGrade()">Continuar de todos modos →</button>
+        <div class="part-header">Part A <span class="ptsmall">5 points</span></div>
+        <div class="part-instructions">
+          You will hear five people talk about what keeps them motivated. Match each speaker (1–5) with an answer (A–F). There is <strong>one extra answer</strong>. Select the letter from the dropdown. You will hear the recording twice.
+          <br><button class="es-toggle" onclick="toggleEs('es-la')">🌐 Ver en español</button>
+          <div class="es-box" id="es-la">Escucharás a cinco personas hablar sobre lo que las mantiene motivadas. Une cada hablante (1–5) con una respuesta (A–F). Sobra <strong>una respuesta</strong>. Selecciona la letra en el menú desplegable. Escucharás la grabación dos veces.</div>
+        </div>
+        <div class="audio-container">
+          <div class="audio-label">🔊 Audio — Listening Part A</div>
+          <audio id="audioA" controls preload="metadata" playsinline onplay="trackPlay('audioA')">
+            <source src="https://github.com/Moncholate/INI5111-End-of-Term-Written-Mock-Test/raw/refs/heads/main/Listening%20A.mp3" type="audio/mpeg">
+          </audio>
+          <div class="play-counter" id="counter_audioA">Plays: 0 / 2</div>
+        </div>
+        <table class="advice-table">
+          <thead><tr><th colspan="2">What keeps them motivated?</th></tr></thead>
+          <tbody id="laOptions"></tbody>
+        </table>
+        <div id="laRows"></div>
+
+        <hr class="part-divider">
+
+        <div class="part-header">Part B <span class="ptsmall">7 points</span></div>
+        <div class="part-instructions">
+          You will hear five short interviews. For questions 1 to 7, select the correct answer (a, b or c). You will hear the recording twice.
+          <br><button class="es-toggle" onclick="toggleEs('es-lb')">🌐 Ver en español</button>
+          <div class="es-box" id="es-lb">Escucharás cinco entrevistas cortas. En las preguntas 1 a 7, selecciona la respuesta correcta (a, b o c). Escucharás la grabación dos veces.</div>
+        </div>
+        <div class="audio-container">
+          <div class="audio-label">🔊 Audio — Listening Part B</div>
+          <audio id="audioB" controls preload="metadata" playsinline onplay="trackPlay('audioB')">
+            <source src="https://github.com/Moncholate/INI5111-End-of-Term-Written-Mock-Test/raw/refs/heads/main/Listening%20B.mp3" type="audio/mpeg">
+          </audio>
+          <div class="play-counter" id="counter_audioB">Plays: 0 / 2</div>
+        </div>
+        <div id="lbQuestions"></div>
+      </div>
+    </div>
+
+    <!-- ================= READING ================= -->
+    <div class="section" id="readingSection">
+      <div class="section-header reading"><span class="icon">📖</span><h2>II. Reading</h2><span class="pts">12 points</span></div>
+      <div class="section-body">
+
+        <div class="part-header">Part A <span class="ptsmall">6 points, 1 each</span></div>
+        <div class="part-instructions">
+          Read the text about Carlos's memories and answer the questions. Type your answers in the boxes. Write complete sentences.
+          <br><button class="es-toggle" onclick="toggleEs('es-ra')">🌐 Ver en español</button>
+          <div class="es-box" id="es-ra">Lee el texto sobre los recuerdos de Carlos y responde las preguntas. Escribe tus respuestas en los recuadros. Escribe oraciones completas.</div>
+        </div>
+        <div class="reading-text-box">
+          <h4>Summers at my grandmother's house</h4>
+          <div class="reading-intro">by Carlos Vera</div>
+          <p>When I was a child, my family lived in a big city in the north of Chile. Life there was busy, and my parents worked a lot. Every summer, from December to March, my brother and I went to stay with my grandmother in a small village near the sea. I was always very happy there because I could play outside all day.</p>
+          <p>Our days used to start early. My grandmother woke up at six and made fresh bread in her little kitchen. The smell was wonderful, and my brother and I used to run to the table for breakfast. After that, we used to help her in the garden. She grew tomatoes, potatoes and flowers. I didn't like working in the garden at first, but she always said, "Do it with a smile, and it's easy."</p>
+          <p>In the afternoon, we used to go to the river with the other children from the village. We didn't have phones or tablets, so we played football, swam and looked for small fish. I used to stay in the water for hours! At night, we used to sit outside, and my grandmother told us stories about her life. I didn't use to sleep well in the city, but in her house I always slept very well.</p>
+          <p>Everything changed when I was fifteen. My grandmother got sick and moved to our house in the city. The village house was empty, and we stopped going in the summer. At first, I felt sad because I missed the river and the quiet nights. Now I'm thirty-five, and I live in a different city. Every summer, I take my own children to the village. The house is old, but the river is the same. We still make bread in the kitchen, and I tell them the same stories.</p>
+        </div>
+        <div id="raQuestions"></div>
+        <button class="gemini-btn" onclick="copyForGemini('ra')">🤖 Copiar prompt de evaluación Gemini (Reading A)</button>
+        <div class="gemini-warn" id="geminiWarnRA">⚠️ <span>Escribe al menos una respuesta de Reading A antes de pedir la revisión de Gemini.</span></div>
+
+        <hr class="part-divider">
+
+        <div class="part-header">Part B <span class="ptsmall">6 points</span></div>
+        <div class="part-instructions">
+          Read each situation (1 to 6) and select the correct tip (a to g) from the dropdown. There is <strong>one tip you will not need</strong>.
+          <br><button class="es-toggle" onclick="toggleEs('es-rb')">🌐 Ver en español</button>
+          <div class="es-box" id="es-rb">Lee cada situación (1 a 6) y selecciona el consejo correcto (a a g) en el menú desplegable. Hay <strong>un consejo que no necesitarás</strong>.</div>
+        </div>
+        <div class="tips-list" id="rbTips"></div>
+        <div id="rbRows"></div>
+      </div>
+    </div>
+
+    <!-- ================= WRITING ================= -->
+    <div class="section" id="writingSection">
+      <div class="section-header writing"><span class="icon">✍️</span><h2>III. Writing</h2><span class="pts">12 points</span></div>
+      <div class="section-body">
+        <div class="part-instructions">
+          <strong>Directions:</strong> Write a biography about a famous living person <strong>or</strong> about someone you know well (a family member or a friend). The person must be alive. Think about the important events and experiences in their life. Your text must be at least 80 words. Use tenses accordingly. Consider:
+          <ul style="margin:8px 0 0 20px;">
+            <li>Where they were born and grew up.</li>
+            <li>Their childhood.</li>
+            <li>Their education and jobs.</li>
+            <li>Their achievements and other important events.</li>
+            <li>Their current life.</li>
+          </ul>
+          <button class="es-toggle" onclick="toggleEs('es-wr')">🌐 Ver en español</button>
+          <div class="es-box" id="es-wr">Escribe una biografía de una persona famosa que esté viva <strong>o</strong> de alguien que conozcas bien (un familiar o un amigo). La persona debe estar viva. Piensa en los eventos y experiencias importantes de su vida. Tu texto debe tener al menos 80 palabras. Usa los tiempos verbales adecuados. Considera: dónde nació y creció, su infancia, su educación y trabajos, sus logros y otros eventos importantes, y su vida actual.</div>
+        </div>
+        <div class="guide-note">Lista de apoyo (márcala tú mismo mientras escribes):</div>
+        <div class="guide-check" id="guideCheck"></div>
+        <textarea class="writing-textarea" id="writingText" placeholder="Type your biography here…" oninput="updateWordCount();saveAll()"></textarea>
+        <div class="word-counter bad" id="wordCounter">Palabras: 0 / mínimo 80</div>
+        <button class="gemini-btn" onclick="copyForGemini('w')">🤖 Copiar prompt de evaluación Gemini (Writing)</button>
+        <div class="gemini-warn" id="geminiWarnW">⚠️ <span>Escribe tu biografía antes de pedir la revisión de Gemini.</span></div>
+
+        <div class="rubric-box">
+          <div class="rubric-title">📝 Rúbrica de Writing</div>
+          <div class="rubric-note">Completa esta rúbrica usando la evaluación por criterio que te entregó Gemini. Selecciona el nivel que Gemini indicó para cada criterio.</div>
+          <div id="rubricBody"></div>
+          <div class="rubric-subtotal" id="rubricSubtotal">Puntaje Writing: — / 12 pts</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="blankWarning">
+      <strong>⚠️ Hay preguntas sin responder:</strong>
+      <ul id="blankList"></ul>
+      <p style="margin-bottom:10px;">Puedes continuar igual — las preguntas sin responder recibirán 0 puntos.</p>
+      <button class="dismiss-btn" onclick="document.getElementById('blankWarning').style.display='none';calculateFinalGrade()">Continuar de todos modos →</button>
+    </div>
+    <button class="calculate-btn" onclick="checkBlanksAndCalculate()">📊 Calcular mi nota</button>
+
+    <!-- ================= RESULTS ================= -->
+    <div id="results">
+      <div class="results-card">
+        <h3 id="resultsTitle">📊 Resultados del Mock Test</h3>
+        <div class="score-row"><span>🎧 Listening A</span><span class="score-val" id="laDisplay">—</span></div>
+        <div class="score-row"><span>🎧 Listening B</span><span class="score-val" id="lbDisplay">—</span></div>
+        <div class="score-row"><span>📖 Reading A</span><span class="score-val pending" id="raDisplay">—</span></div>
+        <div class="score-row"><span>📖 Reading B</span><span class="score-val" id="rbDisplay">—</span></div>
+        <div class="score-row"><span>✍️ Writing</span><span class="score-val pending" id="wDisplay">—</span></div>
+        <div class="score-row total-row"><span>Total</span><span class="score-val" id="totalDisplay">—</span></div>
+        <div class="grade-display">
+          <span class="grade-label">Nota</span>
+          <span class="grade-val pending" id="gradeDisplay">⏳ Nota pendiente</span>
+          <div class="grade-msg" id="gradeMsg"></div>
+        </div>
+      </div>
+
+      <div class="gemini-block" id="geminiBlock" style="display:none;">
+        <h4>🤖 Paso final: ingresa los puntajes de Gemini</h4>
+        <p>Usa el puntaje del <strong>Bloque 2</strong> que Gemini entrega al final de su respuesta. Las preguntas que dejaste en blanco ya tienen 0 pts asignado automáticamente.</p>
+        <div id="gemRA"></div>
+        <p style="margin-top:14px;"><strong>✍️ Writing:</strong> marca los 4 niveles en la rúbrica de Writing usando el Bloque 2.</p>
+        <button class="mini-btn" onclick="scrollToId('rub1_0')">Ir a la rúbrica de Writing ↑</button>
+        <div class="gb-warn" id="gbWarn"></div>
+        <button class="final-btn" onclick="updateWithGeminiScores(false)">✅ Calcular nota final</button>
+      </div>
+
+      <div class="partial-feedback-bar" id="partialBar">
+        <p>⏳ <strong>Retroalimentación completa pendiente.</strong> Completa la revisión con Gemini para ver Reading A y Writing. Mientras tanto, puedes revisar las secciones corregidas automáticamente.</p>
+        <button id="partialBtn" onclick="togglePartialFeedback()">👁 Ver retroalimentación parcial</button>
+      </div>
+
+      <div id="feedbackSection" style="display:none;">
+        <div class="filter-tabs" id="filterTabs" style="display:none;">
+          <button class="filter-tab active" onclick="filterFeedback('all', event)">Todas</button>
+          <button class="filter-tab" onclick="filterFeedback('listening', event)">🎧 Listening</button>
+          <button class="filter-tab" onclick="filterFeedback('reading', event)">📖 Reading</button>
+          <button class="filter-tab" onclick="filterFeedback('writing', event)">✍️ Writing</button>
+          <button class="filter-tab" onclick="filterFeedback('correct', event)">✓ Correctas</button>
+          <button class="filter-tab" onclick="filterFeedback('incorrect', event)">✗ Incorrectas</button>
+        </div>
+        <div id="partialNote" style="display:none;margin-bottom:14px;font-size:.88em;color:#92400e;">👁 Mostrando solo las secciones corregidas automáticamente (Listening y Reading B).</div>
+        <div class="summary-cards" id="summaryCards"></div>
+        <div id="fbListening"></div>
+        <div id="fbReading"></div>
+        <div id="fbWriting"></div>
+      </div>
+    </div>
+  </div>
 </div>
-<button class="calculate-btn" onclick="checkBlanksAndCalculate()">📊 Calcular mi nota</button>
 
-
-<!-- ══════════════════════════════════════════════════════ -->
-<!--  RESULTS                                               -->
-<!-- ══════════════════════════════════════════════════════ -->
-<div id="results">
-
-  <div class="results-card">
-    <h3 id="resultsTitle">📊 Resultados</h3>
-
-    <div class="score-row">
-      <span>Listening</span>
-      <span id="listeningDisplay">— / 12</span>
-    </div>
-    <div class="score-row">
-      <span>Reading</span>
-      <span id="readingDisplay">— / 12</span>
-    </div>
-    <div class="score-row">
-      <span>Writing</span>
-      <span id="writingDisplay">— / 12</span>
-    </div>
-    <div class="score-row">
-      <span><strong>Total</strong></span>
-      <span id="totalDisplay"><strong>— / 36</strong></span>
-    </div>
-
-    <div id="gradeDisplay"></div>
-  </div>
-
-  <!-- SUMMARY DOTS -->
-  <div class="summary-cards">
-    <div class="summary-card">
-      <div class="s-title">Listening</div>
-      <div class="s-score" id="dotListeningScore">—</div>
-      <div class="s-dots" id="dotListening"></div>
-    </div>
-    <div class="summary-card">
-      <div class="s-title">Reading</div>
-      <div class="s-score" id="dotReadingScore">—</div>
-      <div class="s-dots" id="dotReading"></div>
-    </div>
-    <div class="summary-card">
-      <div class="s-title">Writing</div>
-      <div class="s-score" id="dotWritingScore">—</div>
-      <div class="s-dots" id="dotWriting"></div>
-    </div>
-  </div>
-
-  <!-- PRINT BUTTON -->
-  <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar como PDF</button>
-
-  <!-- GEMINI BLOCK (Reading A) -->
-  <div id="geminiBlock"></div>
-
-  <!-- FEEDBACK -->
-  <div id="feedbackSection" style="display:none;">
-    <div class="filter-tabs">
-      <button class="filter-tab active" data-filter="incorrect" onclick="filterFeedback('incorrect')">✗ Solo incorrectas</button>
-      <button class="filter-tab" data-filter="all" onclick="filterFeedback('all')">Todas las preguntas</button>
-      <button class="filter-tab" data-filter="correct" onclick="filterFeedback('correct')">✓ Solo correctas</button>
-    </div>
-
-    <div id="feedbackContent"></div>
-  </div>
-
-</div><!-- /results -->
-
-</div><!-- /content -->
-</div><!-- /container -->
-
-
-<!-- MODAL GEMINI -->
-<div class="modal-overlay" id="geminiModal">
+<!-- shared Gemini modal -->
+<div class="modal-overlay" id="geminiSuccessModal">
   <div class="modal">
-    <div class="modal-icon">📋</div>
+    <span class="modal-icon">📋</span>
     <h3>¡Texto copiado!</h3>
-    <div class="modal-steps">
-      <div class="modal-step"><div class="modal-step-num">1</div><span>Ve a <strong>gemini.google.com</strong> y abre una conversación nueva.</span></div>
-      <div class="modal-step"><div class="modal-step-num">2</div><span>Pega el texto en el campo de mensaje (<strong>Ctrl+V</strong> o Cmd+V) y envíalo.</span></div>
-      <div class="modal-step"><div class="modal-step-num">3</div><span>Lee el <strong>Bloque 2</strong> y usa los puntajes sugeridos para completar la rúbrica o los campos de puntaje.</span></div>
-    </div>
+    <p>El prompt con tus respuestas ya está en el portapapeles.</p>
+    <ol>
+      <li>Abre Gemini con el botón de abajo.</li>
+      <li>Pega el texto con Ctrl+V (o Cmd+V en Mac) y envíalo.</li>
+      <li>Usa los puntajes del <strong>Bloque 2</strong>: los de Reading A se ingresan al calcular tu nota, y los de Writing en la rúbrica.</li>
+    </ol>
     <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="closeGeminiModal()">Cerrar</button>
-      <button class="modal-btn go" onclick="closeGeminiModal();window.open('https://gemini.google.com','_blank')">Ir a Gemini →</button>
+      <button onclick="closeModal('geminiSuccessModal')">Cerrar</button>
+      <button onclick="closeModal('geminiSuccessModal');window.open('https://gemini.google.com/','_blank')">Abrir Gemini ↗</button>
     </div>
   </div>
 </div>
-
-<!-- SAVE TOAST -->
 <div id="saveToast">✓ Respuestas guardadas</div>
 
-
 <script>
-// ══════════════════════════════════════════════════════════
-//  CONSTANTS & FLAGS
-// ══════════════════════════════════════════════════════════
-const SAVE_KEY = 'mocktest_ini5111_endterm_v1';
-let saveTimer;
-let geminiRADone = false;
-const playCounts = {};
-
-// ANSWER KEYS
-const LA_KEY = {la_s1:'E',la_s2:'A',la_s3:'D',la_s4:'F',la_s5:'B'};
-const LB_KEY = {lb_q1:'b',lb_q2:'c',lb_q3:'a',lb_q4:'b',lb_q5:'c',lb_q6:'a',lb_q7:'b'};
-const RB_KEY = {rb_s1:'b',rb_s2:'d',rb_s3:'a',rb_s4:'g',rb_s5:'c',rb_s6:'f'};
-
-const LA_OPTIONS = {
-  A:'Taking care of my pets',B:'Spending time with family',C:'Going on trips alone',
-  D:'Drawing and creating things',E:'Playing sports with friends',F:'Learning something new'
+/* ═══════════ DATA ═══════════ */
+const LA_OPTS=[["A","Learning something new every week."],["B","Doing something good for other people."],["C","Solving difficult problems at work."],["D","Meeting new people at work."],["E","Making music with other people."],["F","Saving money for something special."]];
+const LA_KEY={1:"C",2:"A",3:"E",4:"B",5:"F"};
+const LA_EXP={
+ 1:"Dice que le gustan sus compañeros, pero que no es su razón principal: lo que la motiva es encontrar la respuesta cuando hay un problema grande (C). «Meeting new people» (D) es la opción extra.",
+ 2:"Toma una clase distinta cada mes y dice «Every week, I know something I didn't know before» (A).",
+ 3:"Toca la guitarra en una banda con amigos: «When we play together, everything sounds better» (E).",
+ 4:"Su trabajo en el banco no es emocionante; lo mejor es el sentimiento de ayudar a otras personas con comida gratis (B). Aunque conoce gente, esa no es su razón principal.",
+ 5:"Anota todo lo que gasta y guarda dinero en una caja para comprar una cámara (F)."
 };
-const LB_OPTIONS = {
-  lb_q1:{a:'since 2019',b:'since she was 19 years old',c:'for 19 years'},
-  lb_q2:{a:'Nemo',b:'Sunny',c:'Luna'},
-  lb_q3:{a:'three years ago',b:'five years ago',c:'last year'},
-  lb_q4:{a:'for two years',b:'since she was a child',c:'since last summer'},
-  lb_q5:{a:'ten years',b:'two years',c:'eight years'},
-  lb_q6:{a:'fire rescue specialist',b:'firefighter',c:'team leader'},
-  lb_q7:{a:'for a week',b:'for three days',c:'since Monday'}
-};
-const LB_QUESTIONS = {
-  lb_q1:'Sofia has been a swimming coach…',lb_q2:'Her cat\'s name is…',
-  lb_q3:'Sport Zone opened…',lb_q4:'Ana has been afraid of spiders…',
-  lb_q5:'Carlos has been a firefighter for…',lb_q6:'Two years ago, Carlos became a…',
-  lb_q7:'Paula has been in the city…'
-};
-const RB_OPTIONS = {
-  a:'a) Tip sobre estrés de exámenes',b:'b) Tip sobre mejorar la salud',
-  c:'c) Tip sobre trabajo nuevo',d:'d) Tip sobre discusión con amigo',
-  e:'e) Tip sobre cocinar (extra)',f:'f) Tip sobre celular perdido',
-  g:'g) Tip sobre aprender un idioma'
-};
-const RB_SITUATIONS = {
-  rb_s1:'Situación 1 — quiere mejorar su salud',rb_s2:'Situación 2 — discutió con su amigo',
-  rb_s3:'Situación 3 — estresado por exámenes',rb_s4:'Situación 4 — quiere aprender un idioma',
-  rb_s5:'Situación 5 — trabajo nuevo',rb_s6:'Situación 6 — perdió el celular'
-};
-const RA_QUESTIONS = [
-  'How was Lucas\'s new school in Madrid? Give two details.',
-  'Why did Lucas use to feel lost at lunchtime in Madrid?',
-  'Describe Lucas\'s school in Ecuador. Why did he feel comfortable there?',
-  'Name two activities Lucas used to do with his friends in Ecuador.',
-  'How did Lucas\'s PE teacher help him at his new school in Madrid?',
-  'Why was Lucas good at Spanish Literature?'
+const LB=[
+ {n:1,iv:1,stem:"Luis has had the shop…",o:["since he was thirty","for five years","for thirty years"],k:"b",exp:"Dice «For five years now». «I opened it when I was thirty» es la edad en que abrió la tienda, no el tiempo que lleva con ella."},
+ {n:2,iv:1,stem:"Luis has loved bikes…",o:["since he was a child","since he opened the shop","since he was thirty"],k:"a",exp:"Dice «I've loved bikes since I was a child». Usa «since» + punto de inicio."},
+ {n:3,iv:2,stem:"Sofia came to Canada…",o:["eighteen months ago","eight months ago","eight years ago"],k:"b",exp:"Dice «About eight months ago». Cuidado con números parecidos (eight / eighteen)."},
+ {n:4,iv:3,stem:"Dana has run…",o:["for fifteen months","for five months","for fifteen weeks"],k:"a",exp:"Dice «I've run for fifteen months». Los cinco minutos son lo que corría al comienzo."},
+ {n:5,iv:4,stem:"Alma has been a nurse…",o:["since she moved to the city","since she bought her house","since she left university"],k:"c",exp:"Responde «Since I left university». Las otras opciones no se mencionan."},
+ {n:6,iv:4,stem:"Three years ago, Alma moved to…",o:["a small clinic","a big hospital","a pharmacy"],k:"b",exp:"Dice «three years ago I moved to the big hospital». La clínica pequeña es donde trabajó antes."},
+ {n:7,iv:5,stem:"The guest has been at the hotel…",o:["for two weeks","since last month","since Monday"],k:"c",exp:"Responde «Since Monday». «Since» + punto de inicio, no un período."}
 ];
-const RA_MODEL = [
-  'It was enormous / very noisy / more than 800 students / 35 per class / cold weather (any 2)',
-  'Because he didn\'t know where to sit or who to talk to.',
-  'His school was small (20 students) / he knew everyone / teachers had known him for years / he was good at subjects.',
-  'He used to play football on the beach / go swimming in the sea.',
-  'She noticed he was good at sports and invited him to join the basketball team.',
-  'He was already a good reader / the teacher gave him positive marks on his written work.'
+const RA_Q=[
+ {q:"How did Carlos feel in his grandmother's village? Why?",m:"He felt very happy because he could play outside all day.",exp:"Debe decir que estaba muy feliz (very happy) y la razón: podía jugar afuera todo el día."},
+ {q:"What did Carlos and his brother use to do after breakfast?",m:"They used to help their grandmother in the garden.",exp:"Después del desayuno ayudaban a su abuela en el jardín."},
+ {q:"What did the children use to do at the river?",m:"They played football, swam and looked for small fish. (One activity is enough.)",exp:"Basta con una de las actividades: jugar fútbol, nadar o buscar peces pequeños."},
+ {q:"How did Carlos use to sleep at his grandmother's house?",m:"He used to sleep very well.",exp:"En su casa dormía muy bien; en la ciudad no dormía bien (esa es la trampa)."},
+ {q:"Why did everything change when Carlos was fifteen?",m:"His grandmother got sick and moved to their house in the city, so they stopped going to the village.",exp:"Su abuela se enfermó y se fue a vivir a la ciudad, y dejaron de ir al pueblo."},
+ {q:"How did Carlos feel at first when they stopped going to the village? Why?",m:"He felt sad because he missed the river and the quiet nights.",exp:"Se sentía triste (sad) porque extrañaba el río y las noches tranquilas."}
 ];
+const RB_SIT=[
+ "I want to buy a new phone, but I never have money at the end of the month. I spend too much on food and clothes.",
+ "I want to start doing exercise, but I'm always tired after work, and I don't have much time.",
+ "My friends are coming to my house for dinner tonight. It's my first time cooking for so many people, and I'm nervous.",
+ "I can't sleep well at night. I go to bed late, and in the morning I feel tired all day.",
+ "I'm going on a long trip to another country next week. It's my first time on a plane, and I'm a little scared.",
+ "My laptop is very slow, and I need it for my classes. I don't want to buy a new one."
+];
+const RB_TIPS={
+ a:"Start with small steps. You should walk for twenty minutes after work, three days a week. Try to find a friend who wants to walk with you. Make sure to wear comfortable shoes, and don't stop if you feel tired in the first week.",
+ b:"You should join a class or a club, because it is easy to meet people there. Try to say hello to your neighbors, too. Make sure to say yes when someone invites you to do something. Soon you will have new friends.",
+ c:"First of all, you should arrive at the airport early. Make sure to keep your passport and your ticket in your bag, not in your suitcase. Try to relax on the plane: listen to music or watch a movie. Everything will be fine.",
+ d:"You should write everything you buy for one month. Then you can see where your money goes. Try to buy only the things you need, and make sure to put some money in a box before you spend it.",
+ e:"You should delete old photos and files that you don't need. Make sure to close the programs you aren't using. Try to restart the laptop every day. If it is still slow, you can ask a friend to help you.",
+ f:"Try to go to bed at the same time every night. You should not use your phone for one hour before bed, because the light is bad for sleep. Make sure your room is dark and quiet. Don't drink coffee in the evening.",
+ g:"Don't worry! You should choose a simple dish that you know well. Make sure to buy everything before the day of the dinner. Try to prepare some food in the afternoon, so you can enjoy the evening with your friends."
+};
+const RB_KEY={1:"d",2:"a",3:"g",4:"f",5:"c",6:"e"};
+const RB_EXP={
+ 1:"El problema es el dinero: el consejo d recomienda anotar lo que compras y guardar dinero antes de gastarlo. (Aparece «buy» en otros consejos, pero solo este resuelve el dinero).",
+ 2:"Quiere hacer ejercicio con poco tiempo y cansancio después del trabajo: el consejo a propone caminar 20 minutos y empezar con pasos pequeños.",
+ 3:"Va a cocinar para sus amigos y está nervioso: el consejo g sugiere un plato simple, comprar todo antes y preparar comida en la tarde.",
+ 4:"Duerme mal por acostarse tarde: el consejo f habla de la hora de dormir, el teléfono y el cuarto oscuro. (Está cansado todo el día por no dormir, a diferencia de la situación 2).",
+ 5:"Es su primer viaje en avión y tiene miedo: el consejo c habla del aeropuerto, el pasaporte y relajarse en el avión.",
+ 6:"Su computador está lento y no quiere comprar uno nuevo: el consejo e sugiere borrar archivos, cerrar programas y reiniciarlo."
+};
+const RB_EXTRA="b";
+const WR_GUIDE=["Where they were born and grew up","Their childhood","Their education and jobs","Their achievements and other important events","Their current life"];
+const WR_MODEL="My aunt Carla was born in Valdivia, a small city in the south of Chile. She grew up in a big house with her three sisters. When she was a child, she used to play in the garden, and she loved books. She studied nursing at university, and then she worked in a hospital for ten years. In 2015, she moved to Santiago and opened a small health center. It was her biggest achievement. Now she lives in a nice apartment with her husband and two children. She works every day, but she has painted pictures since last year, and she loves it.";
+const VOCAB_LIFE="born, grow up / grew up, childhood, child, school, university, study, graduate, job, work, career, move, open, start, become, achievement, award, famous, marry, children, retire, live, hospital, company";
+const RUBRIC=[
+ {id:"rub1",name:"1. Coherencia y Extensión",max:4,lv:[
+  ["Totalmente Logrado",4,"Escribe 80 palabras o más. Desarrolla al menos 6 ideas de manera completa y detallada, coherentes con la consigna."],
+  ["Logrado",3.2,"Escribe entre 60 y 79 palabras. Desarrolla al menos 5 ideas de manera completa y coherente."],
+  ["Parcialmente Logrado",2.4,"Escribe entre 40 y 59 palabras. Desarrolla al menos 4 ideas de manera completa y coherente."],
+  ["Insuficientemente logrado",1.2,"Escribe entre 30 y 39 palabras. Desarrolla entre 3 y 2 ideas de manera completa y coherente."],
+  ["No Logrado",0,"No hay respuesta o escribe menos de 30 palabras."]]},
+ {id:"rub2",name:"2. Vocabulario",max:3,lv:[
+  ["Totalmente Logrado",3,"Utiliza 8 o más palabras del vocabulario estudiado, en contextos adecuados y coherentes con la consigna."],
+  ["Logrado",2.4,"Utiliza 6 o 7 palabras del vocabulario estudiado, en contextos adecuados."],
+  ["Parcialmente Logrado",1.8,"Utiliza 4 o 5 palabras del vocabulario estudiado, en contextos adecuados."],
+  ["Insuficientemente logrado",0.9,"Utiliza al menos 3 palabras del vocabulario estudiado, en contextos adecuados."],
+  ["No Logrado",0,"No responde o utiliza menos de 2 palabras estudiadas, y/o no se ajusta a la consigna."]]},
+ {id:"rub3",name:"3. Gramática",max:3,lv:[
+  ["Totalmente Logrado",3,"Aplica las reglas gramaticales y conjuga los tiempos verbales correctamente (0 o 1 error)."],
+  ["Logrado",2.4,"Conjuga correctamente en la mayoría de los casos: entre 2 y 3 errores que no afectan la comprensión."],
+  ["Parcialmente Logrado",1.8,"Entre 4 y 5 errores, pero en general el texto sigue siendo comprensible."],
+  ["Insuficientemente logrado",0.9,"Hasta 6 errores que limitan y obstaculizan la claridad del mensaje."],
+  ["No Logrado",0,"No hay respuesta o hay 7 o más errores gramaticales que impiden la comprensión."]]},
+ {id:"rub4",name:"4. Ortografía",max:2,lv:[
+  ["Totalmente Logrado",2,"0 a 2 errores ortográficos en todo el texto que no afectan el mensaje."],
+  ["Logrado",1.6,"3 o 4 errores ortográficos que no afectan en general el mensaje."],
+  ["Parcialmente Logrado",1.2,"5 o 6 errores ortográficos que afectan parcialmente el mensaje."],
+  ["Insuficientemente logrado",0.6,"7 a 9 errores ortográficos que afectan la idea principal del mensaje."],
+  ["No Logrado",0,"No hay respuesta o hay más de 10 errores que afectan la comprensión."]]}
+];
+const SAVE_KEY="mocktest_INI5111_written_v1";
+const TOTAL_TASKS=29;
+const MAX_TOTAL=36;
 
-// ══════════════════════════════════════════════════════════
-//  UTILS
-// ══════════════════════════════════════════════════════════
-function g(id){const el=document.getElementById(id);return el?el.value:'';}
-function getRadio(name){const c=document.querySelector(`input[name="${name}"]:checked`);return c?c.value:'';}
+/* ═══════════ HELPERS ═══════════ */
+function g(id){const el=document.getElementById(id);return el?el.value:"";}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function getRadio(name){const c=document.querySelector('input[name="'+name+'"]:checked');return c?c.value:"";}
+function countWords(t){return t.trim()?t.trim().split(/\s+/).length:0;}
+function r1(x){return Math.round(x*10)/10;}
+function calcGrade(score,max){const pct=(score/max)*100;const gr=pct<60?(1+(pct/60)*3):(4+((pct-60)/40)*3);return Math.min(7,Math.max(1,Math.round(gr*10)/10));}
+function toggleEs(id){document.getElementById(id).classList.toggle("open");}
+function closeModal(id){document.getElementById(id).classList.remove("active");}
+function scrollToId(id){const el=document.getElementById(id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.style.outline="3px solid #f59e0b";setTimeout(()=>{el.style.outline="";},2000);setTimeout(()=>{try{el.focus();}catch(e){}},400);}}
 
-function scrollToId(id){
-  const el=document.getElementById(id);
-  if(!el)return;
-  el.scrollIntoView({behavior:'smooth',block:'center'});
-  el.style.outline='3px solid #f59e0b';
-  setTimeout(()=>{el.style.outline='';},2000);
-  setTimeout(()=>{try{el.focus();}catch(e){}},400);
-}
-
-function toggleLang(id){
-  const el=document.getElementById(id);
-  if(!el)return;
-  el.style.display=el.style.display==='block'?'none':'block';
-}
-
-function markSelected(input){
-  const group=document.querySelectorAll(`input[name="${input.name}"]`);
-  group.forEach(r=>{r.closest('label').classList.remove('selected');});
-  input.closest('label').classList.add('selected');
-}
-
-function calcGrade(score,max){
-  const pct=(score/max)*100;
-  const grade=pct<60?(1+(pct/60)*3):(4+((pct-60)/40)*3);
-  return Math.min(7,Math.max(1,Math.round(grade*10)/10));
-}
-
-// ══════════════════════════════════════════════════════════
-//  AUDIO COUNTER
-// ══════════════════════════════════════════════════════════
-function trackPlay(audioId){
-  if(!playCounts[audioId])playCounts[audioId]=0;
-  playCounts[audioId]++;
-  const counter=document.getElementById('counter_'+audioId);
-  const count=playCounts[audioId];
-  if(count>=2){
-    counter.textContent='⚠️ Límite de 2 reproducciones alcanzado';
-    counter.className='play-counter limit';
-  }else if(count===1){
-    counter.textContent='Reproducciones: 1 / 2 — 1 reproducción restante';
-    counter.className='play-counter warning';
+/* ═══════════ RENDER ═══════════ */
+function renderAll(){
+  document.getElementById("laOptions").innerHTML=LA_OPTS.map(o=>`<tr><td><span class="advice-letter">${o[0]}</span>${o[1]}</td></tr>`).join("");
+  let h="";
+  for(let i=1;i<=5;i++){
+    h+=`<div class="match-row" id="la_row_${i}"><span class="match-n">${i}</span><span class="match-q">Speaker ${i}</span><select class="advice-select" id="la_s${i}" onchange="saveAll()"><option value="">—</option>${LA_OPTS.map(o=>`<option value="${o[0]}">${o[0]}</option>`).join("")}</select></div>`;
   }
+  document.getElementById("laRows").innerHTML=h;
+  h="";let lastIv=0;
+  LB.forEach(q=>{
+    if(q.iv!==lastIv){h+=`<div class="interview-label">Interview ${q.iv}</div>`;lastIv=q.iv;}
+    h+=`<div class="mc-q" id="lb_row_${q.n}"><div class="mc-stem"><span class="q-num">${q.n}.</span>${q.stem}</div><div class="mc-options">`+
+      ["a","b","c"].map((L,i)=>`<label class="mc-option" for="lb_q${q.n}_${L}"><input type="radio" name="lb_q${q.n}" id="lb_q${q.n}_${L}" value="${L}" onchange="saveAll()"><span>${L}) ${q.o[i]}</span></label>`).join("")+`</div></div>`;
+  });
+  document.getElementById("lbQuestions").innerHTML=h;
+  document.getElementById("raQuestions").innerHTML=RA_Q.map((q,i)=>`<div class="q-block" id="ra_row_${i+1}"><div class="q-label"><span class="q-num">${i+1}.</span><span>${q.q}</span><span class="q-pts">1 pt</span></div><textarea id="ra_ans${i+1}" placeholder="Type your answer here…" oninput="saveAll()"></textarea></div>`).join("");
+  document.getElementById("rbTips").innerHTML=Object.keys(RB_TIPS).map(k=>`<div class="tip-card"><b>${k})</b>${RB_TIPS[k]}</div>`).join("");
+  document.getElementById("rbRows").innerHTML=RB_SIT.map((s,i)=>`<div class="match-row" id="rb_row_${i+1}"><span class="match-n">${i+1}</span><span class="match-q">“${s}”</span><select class="match-sel" id="rb_s${i+1}" onchange="saveAll()"><option value="">—</option>${Object.keys(RB_TIPS).map(k=>`<option value="${k}">${k}</option>`).join("")}</select></div>`).join("");
+  document.getElementById("guideCheck").innerHTML=WR_GUIDE.map((t,i)=>`<label><input type="checkbox" id="wr_c${i+1}" onchange="saveAll()">${t}</label>`).join("");
+  document.getElementById("rubricBody").innerHTML=RUBRIC.map(c=>`<div class="criterion"><h4>${c.name} (${c.max} pts)</h4><div class="criterion-options">`+c.lv.map((l,k)=>`<label for="${c.id}_${k}"><input type="radio" name="${c.id}" id="${c.id}_${k}" value="${l[1]}" onchange="updateRubric();saveAll()"><div><div class="rub-level">${l[0]} <span class="rub-pts">${l[1]} pts</span></div><div class="rub-desc">${l[2]}</div></div><span class="check-icon">✓</span></label>`).join("")+`</div></div>`).join("");
 }
 
-// ══════════════════════════════════════════════════════════
-//  WORD COUNT & RUBRIC
-// ══════════════════════════════════════════════════════════
+/* ═══════════ AUDIO ═══════════ */
+const playCounts={};
+function trackPlay(id){
+  playCounts[id]=(playCounts[id]||0)+1;
+  const c=document.getElementById("counter_"+id),n=playCounts[id];
+  if(n>=3){c.textContent="⚠️ Ya escuchaste este audio "+n+" veces (el examen real permite 2)";c.className="play-counter limit";}
+  else if(n===2){c.textContent="Plays: 2 / 2 — ⚠️ límite del examen alcanzado";c.className="play-counter limit";}
+  else{c.textContent="Plays: 1 / 2 — 1 reproducción restante";c.className="play-counter warning";}
+}
+
+/* ═══════════ WORD COUNT / RUBRIC ═══════════ */
 function updateWordCount(){
-  const text=g('writingText').trim();
-  const words=text?text.split(/\s+/).filter(w=>w.length>0).length:0;
-  const el=document.getElementById('wordCount');
-  if(!el)return;
-  el.textContent=`Palabras: ${words} / mínimo 80`;
-  el.style.color=words>=80?'#10b981':words>=50?'#f59e0b':'#ef4444';
+  const n=countWords(g("writingText")),el=document.getElementById("wordCounter");
+  el.textContent="Palabras: "+n+" / mínimo 80";
+  el.className="word-counter "+(n>=80?"good":n>=40?"warn":"bad");
+  return n;
 }
-
+function rubricScore(){let s=0;RUBRIC.forEach(c=>{const v=getRadio(c.id);if(v!=="")s+=parseFloat(v);});return r1(s);}
 function updateRubric(){
-  const scores=['rub1','rub2','rub3','rub4'].map(n=>parseFloat(getRadio(n))||0);
-  const total=scores.reduce((a,b)=>a+b,0);
-  const el=document.getElementById('rubricTotal');
-  if(el)el.textContent=total.toFixed(1);
-  // Highlight selected rub labels
-  ['rub1','rub2','rub3','rub4'].forEach(name=>{
-    document.querySelectorAll(`input[name="${name}"]`).forEach(r=>{
-      r.closest('label').classList.toggle('selected-rub',r.checked);
-    });
-  });
-  updateProgress();
+  const done=RUBRIC.filter(c=>getRadio(c.id)!=="").length;
+  document.getElementById("rubricSubtotal").textContent="Puntaje Writing: "+(done?rubricScore():"—")+" / 12 pts"+(done&&done<4?" (faltan criterios)":"");
 }
 
-// ══════════════════════════════════════════════════════════
-//  PROGRESS BAR
-// ══════════════════════════════════════════════════════════
-function updateProgress(){
-  const total=29;
-  let done=0;
-  ['la_s1','la_s2','la_s3','la_s4','la_s5'].forEach(id=>{if(g(id))done++;});
-  ['lb_q1','lb_q2','lb_q3','lb_q4','lb_q5','lb_q6','lb_q7'].forEach(n=>{if(getRadio(n))done++;});
-  ['ra_q1','ra_q2','ra_q3','ra_q4','ra_q5','ra_q6'].forEach(id=>{if(g(id).trim())done++;});
-  ['rb_s1','rb_s2','rb_s3','rb_s4','rb_s5','rb_s6'].forEach(id=>{if(g(id))done++;});
-  if(g('writingText').trim())done++;
-  ['rub1','rub2','rub3','rub4'].forEach(n=>{if(getRadio(n))done++;});
-  const pct=Math.round((done/total)*100);
-  document.getElementById('progressFill').style.width=pct+'%';
-  document.getElementById('progressFill').style.background=pct===100?'#10b981':'linear-gradient(90deg,#4f46e5,#7c3aed)';
-  document.getElementById('progressText').textContent=pct+'%';
+/* ═══════════ SAVE / LOAD ═══════════ */
+let saveTimer=null;
+function collectData(){
+  const d={studentName:g("studentName"),writingText:g("writingText")};
+  for(let i=1;i<=5;i++)d["la_s"+i]=g("la_s"+i);
+  for(let i=1;i<=6;i++){d["ra_ans"+i]=g("ra_ans"+i);d["rb_s"+i]=g("rb_s"+i);}
+  LB.forEach(q=>{d["lb_q"+q.n]=getRadio("lb_q"+q.n);});
+  RUBRIC.forEach(c=>{d[c.id]=getRadio(c.id);});
+  for(let i=1;i<=5;i++){const e=document.getElementById("wr_c"+i);d["wr_c"+i]=e&&e.checked?"1":"";}
+  return d;
 }
-
-// ══════════════════════════════════════════════════════════
-//  AUTOSAVE
-// ══════════════════════════════════════════════════════════
+function hasAnyAnswer(d){return Object.keys(d).some(k=>k!=="studentName"&&d[k]!==""&&!/^wr_c/.test(k))||d.studentName!=="";}
 function saveAll(){
-  clearTimeout(saveTimer);
-  saveTimer=setTimeout(()=>{
-    const data={
-      studentName:g('studentName'),
-      la_s1:g('la_s1'),la_s2:g('la_s2'),la_s3:g('la_s3'),la_s4:g('la_s4'),la_s5:g('la_s5'),
-      lb_q1:getRadio('lb_q1'),lb_q2:getRadio('lb_q2'),lb_q3:getRadio('lb_q3'),lb_q4:getRadio('lb_q4'),
-      lb_q5:getRadio('lb_q5'),lb_q6:getRadio('lb_q6'),lb_q7:getRadio('lb_q7'),
-      ra_q1:g('ra_q1'),ra_q2:g('ra_q2'),ra_q3:g('ra_q3'),ra_q4:g('ra_q4'),ra_q5:g('ra_q5'),ra_q6:g('ra_q6'),
-      rb_s1:g('rb_s1'),rb_s2:g('rb_s2'),rb_s3:g('rb_s3'),rb_s4:g('rb_s4'),rb_s5:g('rb_s5'),rb_s6:g('rb_s6'),
-      writingText:g('writingText'),
-      rub1:getRadio('rub1'),rub2:getRadio('rub2'),rub3:getRadio('rub3'),rub4:getRadio('rub4')
-    };
-    localStorage.setItem(SAVE_KEY,JSON.stringify(data));
-    flashToast();
-  },900);
-  updateProgress();
-  checkForAnswers();
+  const d=collectData();
+  try{localStorage.setItem(SAVE_KEY,JSON.stringify(d));}catch(e){}
+  clearTimeout(saveTimer);saveTimer=setTimeout(flashToast,300);
+  checkForAnswers();updateProgress();
 }
-
-function checkForAnswers(){
-  const hasData=g('la_s1')||g('la_s2')||getRadio('lb_q1')||g('ra_q1')||g('rb_s1')||g('writingText')||getRadio('rub1');
-  document.getElementById('savedBanner').style.display=hasData?'flex':'none';
-}
-
+function flashToast(){const t=document.getElementById("saveToast");if(!t)return;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1800);}
+function checkForAnswers(){document.getElementById("savedBanner").style.display=hasAnyAnswer(collectData())?"flex":"none";}
 function loadSaved(){
-  let raw;
-  try{raw=localStorage.getItem(SAVE_KEY);}catch(e){return;}
+  let raw=null;try{raw=localStorage.getItem(SAVE_KEY);}catch(e){}
   if(!raw)return;
-  const d=JSON.parse(raw);
-  ['studentName','la_s1','la_s2','la_s3','la_s4','la_s5',
-   'ra_q1','ra_q2','ra_q3','ra_q4','ra_q5','ra_q6',
-   'rb_s1','rb_s2','rb_s3','rb_s4','rb_s5','rb_s6','writingText'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el&&d[id]!==undefined)el.value=d[id];
+  let d;try{d=JSON.parse(raw);}catch(e){return;}
+  Object.keys(d).forEach(k=>{
+    if(/^lb_q/.test(k)||/^rub\d$/.test(k)){if(d[k]!==""){const r=document.querySelector('input[name="'+k+'"][value="'+d[k]+'"]');if(r)r.checked=true;}}
+    else if(/^wr_c/.test(k)){const e=document.getElementById(k);if(e)e.checked=d[k]==="1";}
+    else{const e=document.getElementById(k);if(e&&d[k]!==undefined)e.value=d[k];}
   });
-  ['lb_q1','lb_q2','lb_q3','lb_q4','lb_q5','lb_q6','lb_q7','rub1','rub2','rub3','rub4'].forEach(name=>{
-    if(d[name]){
-      const r=document.querySelector(`input[name="${name}"][value="${d[name]}"]`);
-      if(r){r.checked=true;r.closest('label').classList.add(name.startsWith('rub')?'selected-rub':'selected');}
-    }
-  });
-  updateWordCount();
-  updateRubric();
-  updateProgress();
-  checkForAnswers();
-  document.getElementById('savedBanner').style.display='flex';
+  updateWordCount();updateRubric();
 }
-
-function clearSaved(){
+function clearAllAnswers(){
+  if(!window.confirm("¿Seguro que quieres borrar todas tus respuestas?"))return;
   try{localStorage.removeItem(SAVE_KEY);}catch(e){}
-  // Clear all text inputs and selects
-  ['studentName','la_s1','la_s2','la_s3','la_s4','la_s5',
-   'ra_q1','ra_q2','ra_q3','ra_q4','ra_q5','ra_q6',
-   'rb_s1','rb_s2','rb_s3','rb_s4','rb_s5','rb_s6',
-   'writingText'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el)el.value='';
-  });
-  // Uncheck all radio buttons
-  document.querySelectorAll('input[type="radio"]').forEach(r=>{
-    r.checked=false;
-    r.closest('label').classList.remove('selected','selected-rub');
-  });
-  // Reset word count, rubric total, progress
-  updateWordCount();
-  updateRubric();
-  updateProgress();
-  document.getElementById('savedBanner').style.display='none';
-  // Reset rubric total display
-  const rt=document.getElementById('rubricTotal');
-  if(rt)rt.textContent='0.0';
+  document.querySelectorAll("input[type=text],textarea,select").forEach(e=>{e.value="";});
+  document.querySelectorAll("input[type=radio],input[type=checkbox]").forEach(e=>{e.checked=false;e.disabled=false;});
+  autoGeminiDone=false;partialMode=false;
+  Object.keys(raGemini).forEach(k=>delete raGemini[k]);
+  document.getElementById("gemRA").innerHTML="";
+  document.getElementById("geminiBlock").style.display="none";
+  document.getElementById("results").style.display="none";
+  updateWordCount();updateRubric();checkForAnswers();updateProgress();
+}
+function updateProgress(){
+  let n=0;
+  for(let i=1;i<=5;i++)if(g("la_s"+i))n++;
+  LB.forEach(q=>{if(getRadio("lb_q"+q.n))n++;});
+  for(let i=1;i<=6;i++){if(g("ra_ans"+i).trim())n++;if(g("rb_s"+i))n++;}
+  if(g("writingText").trim())n++;
+  RUBRIC.forEach(c=>{if(getRadio(c.id)!=="")n++;});
+  const f=document.getElementById("progressFill");
+  f.style.width=Math.round(n/TOTAL_TASKS*100)+"%";
+  f.className="progress-fill"+(n===TOTAL_TASKS?" complete":"");
+  document.getElementById("progressLabel").textContent=n===TOTAL_TASKS?"✅ Todas las preguntas respondidas":n+" de "+TOTAL_TASKS+" preguntas respondidas";
+  return n;
 }
 
-function flashToast(){
-  const t=document.getElementById('saveToast');
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),1800);
+/* ═══════════ GEMINI ═══════════ */
+function copyToClipboard(text){
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).catch(()=>fallbackCopy(text));}
+  else fallbackCopy(text);
 }
-
-// ══════════════════════════════════════════════════════════
-//  BLANK CHECK
-// ══════════════════════════════════════════════════════════
-function checkBlanksAndCalculate(){
-  const blanks=[];
-  if(!g('la_s1'))blanks.push({label:'Listening A — Speaker 1',targetId:'la_s1'});
-  if(!g('la_s2'))blanks.push({label:'Listening A — Speaker 2',targetId:'la_s2'});
-  if(!g('la_s3'))blanks.push({label:'Listening A — Speaker 3',targetId:'la_s3'});
-  if(!g('la_s4'))blanks.push({label:'Listening A — Speaker 4',targetId:'la_s4'});
-  if(!g('la_s5'))blanks.push({label:'Listening A — Speaker 5',targetId:'la_s5'});
-  if(!getRadio('lb_q1'))blanks.push({label:'Listening B — Pregunta 1',targetId:'lb_block_1'});
-  if(!getRadio('lb_q2'))blanks.push({label:'Listening B — Pregunta 2',targetId:'lb_block_1'});
-  if(!getRadio('lb_q3'))blanks.push({label:'Listening B — Pregunta 3',targetId:'lb_block_3'});
-  if(!getRadio('lb_q4'))blanks.push({label:'Listening B — Pregunta 4',targetId:'lb_block_4'});
-  if(!getRadio('lb_q5'))blanks.push({label:'Listening B — Pregunta 5',targetId:'lb_block_5'});
-  if(!getRadio('lb_q6'))blanks.push({label:'Listening B — Pregunta 6',targetId:'lb_block_5'});
-  if(!getRadio('lb_q7'))blanks.push({label:'Listening B — Pregunta 7',targetId:'lb_block_7'});
-  if(!g('ra_q1').trim())blanks.push({label:'Reading A — Pregunta 1',targetId:'ra_q1'});
-  if(!g('ra_q2').trim())blanks.push({label:'Reading A — Pregunta 2',targetId:'ra_q2'});
-  if(!g('ra_q3').trim())blanks.push({label:'Reading A — Pregunta 3',targetId:'ra_q3'});
-  if(!g('ra_q4').trim())blanks.push({label:'Reading A — Pregunta 4',targetId:'ra_q4'});
-  if(!g('ra_q5').trim())blanks.push({label:'Reading A — Pregunta 5',targetId:'ra_q5'});
-  if(!g('ra_q6').trim())blanks.push({label:'Reading A — Pregunta 6',targetId:'ra_q6'});
-  if(!g('rb_s1'))blanks.push({label:'Reading B — Situación 1',targetId:'rb_s1'});
-  if(!g('rb_s2'))blanks.push({label:'Reading B — Situación 2',targetId:'rb_s2'});
-  if(!g('rb_s3'))blanks.push({label:'Reading B — Situación 3',targetId:'rb_s3'});
-  if(!g('rb_s4'))blanks.push({label:'Reading B — Situación 4',targetId:'rb_s4'});
-  if(!g('rb_s5'))blanks.push({label:'Reading B — Situación 5',targetId:'rb_s5'});
-  if(!g('rb_s6'))blanks.push({label:'Reading B — Situación 6',targetId:'rb_s6'});
-  if(!g('writingText').trim())blanks.push({label:'Writing — texto',targetId:'writingText'});
-  if(!getRadio('rub1'))blanks.push({label:'Rúbrica — Criterio 1',targetId:'rub_block_1'});
-  if(!getRadio('rub2'))blanks.push({label:'Rúbrica — Criterio 2',targetId:'rub_block_2'});
-  if(!getRadio('rub3'))blanks.push({label:'Rúbrica — Criterio 3',targetId:'rub_block_3'});
-  if(!getRadio('rub4'))blanks.push({label:'Rúbrica — Criterio 4',targetId:'rub_block_4'});
-
-  if(blanks.length===0){
-    document.getElementById('blankWarning').style.display='none';
-    calculateFinalGrade();
-    return;
-  }
-  const list=document.getElementById('blankList');
-  list.innerHTML='';
-  blanks.forEach(b=>{
-    const li=document.createElement('li');
-    const btn=document.createElement('button');
-    btn.className='blank-link';
-    btn.textContent=b.label;
-    btn.onclick=()=>scrollToId(b.targetId);
-    li.appendChild(btn);
-    list.appendChild(li);
-  });
-  const warning=document.getElementById('blankWarning');
-  warning.style.display='block';
-  warning.scrollIntoView({behavior:'smooth',block:'center'});
+function fallbackCopy(text){
+  const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";
+  document.body.appendChild(ta);ta.focus();ta.select();
+  try{document.execCommand("copy");}catch(e){}
+  document.body.removeChild(ta);
 }
-
-// ══════════════════════════════════════════════════════════
-//  CALCULATE FINAL GRADE
-// ══════════════════════════════════════════════════════════
-function calculateFinalGrade(){
-  // LISTENING
-  let laScore=0;
-  Object.entries(LA_KEY).forEach(([id,correct])=>{if(g(id)===correct)laScore++;});
-  let lbScore=0;
-  Object.entries(LB_KEY).forEach(([id,correct])=>{if(getRadio(id)===correct)lbScore++;});
-  const autoListeningScore=laScore+lbScore;
-
-  // READING B (auto)
-  let rbScore=0;
-  Object.entries(RB_KEY).forEach(([id,correct])=>{if(g(id)===correct)rbScore++;});
-
-  // READING A (Gemini)
-  const raScore=geminiRADone?
-    [1,2,3,4,5,6].reduce((sum,i)=>sum+(parseFloat(g('ra_g'+i))||0),0):0;
-  const autoReadingScore=raScore+rbScore;
-
-  // WRITING (rubric)
-  const writingScore=(parseFloat(getRadio('rub1'))||0)+(parseFloat(getRadio('rub2'))||0)+
-                     (parseFloat(getRadio('rub3'))||0)+(parseFloat(getRadio('rub4'))||0);
-  const rubricComplete=getRadio('rub1')&&getRadio('rub2')&&getRadio('rub3')&&getRadio('rub4');
-  const geminiReviewDone=geminiRADone&&rubricComplete;
-
-  const totalScore=autoListeningScore+autoReadingScore+writingScore;
-  const grade=calcGrade(totalScore,36);
-  const pct=Math.round((totalScore/36)*100);
-
-  // SHOW RESULTS
-  document.getElementById('results').style.display='block';
-  const name=g('studentName');
-  document.getElementById('resultsTitle').textContent=name?`📊 Resultados de: ${name}`:'📊 Resultados';
-
-  // SCORES
-  document.getElementById('listeningDisplay').textContent=`${autoListeningScore} / 12`;
-  document.getElementById('readingDisplay').textContent=geminiRADone?`${autoReadingScore} / 12`:`${rbScore} / 6 + (RA pendiente)`;
-  document.getElementById('writingDisplay').textContent=rubricComplete?`${writingScore.toFixed(1)} / 12`:`${writingScore.toFixed(1)} / 12 ${!rubricComplete?'(rúbrica incompleta)':''}`;
-  document.getElementById('totalDisplay').innerHTML=geminiReviewDone?`<strong>${totalScore.toFixed(1)} / 36</strong>`:`<strong>— / 36</strong>`;
-
-  // GRADE DISPLAY
-  const gradeEl=document.getElementById('gradeDisplay');
-  if(geminiReviewDone){
-    const gradeColor=grade>=4.0?'#10b981':'#ef4444';
-    const gradeMsg=grade>=5.5?'¡Excelente trabajo! 🌟':grade>=4.0?'¡Buen resultado! Sigue practicando. 💪':'Sigue esforzándote. ¡Puedes mejorar! 📚';
-    gradeEl.innerHTML=`<div class="grade-display" style="border-color:${gradeColor}">
-      <div class="grade-number" style="color:${gradeColor}">${grade.toFixed(1)}</div>
-      <div class="grade-label">Nota final (escala chilena — 60% = 4.0) · ${pct}%</div>
-      <div class="grade-msg">${gradeMsg}</div>
-    </div>`;
-  }else{
-    gradeEl.innerHTML=`<div class="grade-display" style="border-color:#f59e0b;background:linear-gradient(135deg,#fffbeb,#fef9c3);">
-      <div style="font-size:2.5em;margin-bottom:8px;">⏳</div>
-      <div style="font-family:'DM Serif Display',serif;font-size:1.3em;color:#d97706;">Nota pendiente</div>
-      <div style="font-size:.85em;color:#92400e;margin-top:6px;line-height:1.5;">
-        ${!geminiRADone?'Completa la revisión de <strong>Reading A</strong> con Gemini y haz clic en "Actualizar nota Reading A".<br>':''}
-        ${!rubricComplete?'Completa la <strong>Rúbrica de Writing</strong> basándote en el feedback de Gemini.':''}
-      </div>
-      <div style="font-size:2em;color:#f59e0b;margin-top:10px;animation:bounce 1.2s infinite;">↓</div>
-    </div>`;
-  }
-
-  // SUMMARY DOTS
-  buildDots('dotListening','dotListeningScore',autoListeningScore,12,
-    [...Object.entries(LA_KEY).map(([id,k])=>g(id)===k),
-     ...Object.entries(LB_KEY).map(([id,k])=>getRadio(id)===k)]);
-  const rbDots=Object.entries(RB_KEY).map(([id,k])=>g(id)===k);
-  const raDots=geminiRADone?[1,2,3,4,5,6].map(i=>(parseFloat(g('ra_g'+i))||0)>0):Array(6).fill(null);
-  buildDots('dotReading','dotReadingScore',autoReadingScore,12,[...raDots,...rbDots]);
-  buildDots('dotWriting','dotWritingScore',writingScore,12,null,rubricComplete);
-
-  // GEMINI BLOCK
-  buildGeminiBlock(geminiRADone,rubricComplete,rbScore,writingScore);
-
-  // FEEDBACK — only calculateFinalGrade controls feedbackSection visibility (Rule 21)
-  buildFeedback(laScore,lbScore,rbScore,geminiRADone,raScore);
-  document.getElementById('feedbackSection').style.display=geminiReviewDone?'block':'none';
-  if(geminiReviewDone)filterFeedback('incorrect');
-
-  document.getElementById('results').scrollIntoView({behavior:'smooth'});
+function showGeminiModal(){document.getElementById("geminiSuccessModal").classList.add("active");}
+function rubricTextForGemini(){
+  return RUBRIC.map(c=>c.name+" ("+c.max+" pts)\n"+c.lv.map(l=>"  - "+l[0]+" ("+l[1]+" pts): "+l[2]).join("\n")).join("\n\n");
 }
-
-// ══════════════════════════════════════════════════════════
-//  SUMMARY DOTS
-// ══════════════════════════════════════════════════════════
-function buildDots(containerId,scoreId,score,max,correctArr,rubricDone){
-  const scoreEl=document.getElementById(scoreId);
-  const dotsEl=document.getElementById(containerId);
-  if(scoreEl)scoreEl.textContent=`${typeof score==='number'?score.toFixed(score%1===0?0:1):score} / ${max}`;
-  if(!dotsEl)return;
-  dotsEl.innerHTML='';
-  if(correctArr){
-    correctArr.forEach(ok=>{
-      const d=document.createElement('div');
-      d.className='dot '+(ok===null?'pending':ok?'ok':'err');
-      dotsEl.appendChild(d);
+function buildPrompt(section){
+  const FORMAT_NOTE="ENTREGA TU RESPUESTA EN DOS BLOQUES SEPARADOS Y CLARAMENTE MARCADOS. NO mezcles el contenido de los bloques.";
+  if(section==="ra"){
+    let qs="";
+    RA_Q.forEach((q,i)=>{
+      const a=g("ra_ans"+(i+1)).trim();
+      qs+="\nPREGUNTA "+(i+1)+": "+q.q+"\nRespuesta modelo: "+q.m+"\nRespuesta del estudiante: "+(a||"(en blanco)")+"\n";
     });
-  }else{
-    // Writing: show rubric complete status
-    const d=document.createElement('div');
-    d.className='dot '+(rubricDone?'ok':'pending');
-    dotsEl.appendChild(d);
-  }
-}
+    return `Eres un evaluador de inglés. Evalúa las respuestas de un estudiante de nivel B1 (CEFR) en una tarea de comprensión de lectura con preguntas abiertas.
 
-// ══════════════════════════════════════════════════════════
-//  GEMINI BLOCK (Reading A post-calculation)
-// ══════════════════════════════════════════════════════════
-function buildGeminiBlock(raDone,rubricDone,rbScore,writingScore){
-  const el=document.getElementById('geminiBlock');
-  if(!el)return;
-  if(raDone){
-    const raTotal=[1,2,3,4,5,6].reduce((s,i)=>s+(parseFloat(g('ra_g'+i))||0),0);
-    el.innerHTML=`<div class="gemini-done-banner">✅ <strong>Revisión Reading A completada.</strong> Puntaje ingresado: ${raTotal.toFixed(1)} / 6 pts</div>`;
-    return;
-  }
-  let html=`<div class="gemini-block">
-    <div class="gemini-block-title">📝 Reading A — Revisión con Gemini</div>
-    <div class="gemini-block-note">Copia tus respuestas a Gemini para que evalúe cada pregunta. Luego ingresa los puntajes sugeridos (0, 0.5 o 1 pt por pregunta) y haz clic en "Actualizar nota Reading A".</div>
-    <button class="gemini-btn" onclick="copyForGemini('ra')" style="margin-bottom:18px;">🤖 Copiar prompt de evaluación Gemini — Reading A</button>`;
-  for(let i=1;i<=6;i++){
-    const ans=g(`ra_q${i}`)||'(sin respuesta)';
-    html+=`<div class="ra-review-item">
-      <div class="ra-review-q">Pregunta ${i}: ${RA_QUESTIONS[i-1]}</div>
-      <div class="ra-review-student">Tu respuesta: <span>${ans}</span></div>
-      <div class="ra-review-model">✓ Respuesta modelo: ${RA_MODEL[i-1]}</div>
-      <div class="ra-score-row">
-        <label for="ra_g${i}">Puntaje Gemini:</label>
-        <input type="number" id="ra_g${i}" min="0" max="1" step="0.5" value="0" onchange="saveAll()"> / 1 pt
-      </div>
-    </div>`;
-  }
-  html+=`<button class="calculate-btn" style="margin-top:16px;font-size:1em;" onclick="updateGeminiRA()">📊 Actualizar nota Reading A</button></div>`;
-  el.innerHTML=html;
-}
+TEXTO LEÍDO:
+Carlos Vera cuenta cómo eran sus veranos de niño en la casa de su abuela, en un pueblo cerca del mar. Era muy feliz porque podía jugar afuera todo el día. Cada día ayudaba a su abuela en el jardín, jugaba en el río con otros niños y escuchaba historias en la noche, y dormía muy bien. Cuando tenía 15 años, su abuela se enfermó y se fue a vivir a la ciudad, y dejaron de ir al pueblo. Al principio estaba triste porque extrañaba el río y las noches tranquilas. Hoy lleva a sus propios hijos al pueblo cada verano.
 
-function updateGeminiRA(){
-  geminiRADone=true;
-  calculateFinalGrade();
-}
+SISTEMA DE PUNTAJE (cada pregunta vale máximo 1 punto):
+- 1 pt = respuesta completa y correcta (incluye la razón cuando la pregunta pide "Why?").
+- 0.5 pt = respuesta parcialmente correcta (por ejemplo, falta la razón o falta una parte de la idea).
+- 0 pt = respuesta incorrecta o en blanco.
 
-// ══════════════════════════════════════════════════════════
-//  BUILD FEEDBACK (never sets feedbackSection visibility)
-// ══════════════════════════════════════════════════════════
-function buildFeedback(laScore,lbScore,rbScore,raDone,raScore){
-  const fc=document.getElementById('feedbackContent');
-  if(!fc)return;
-  let html='';
+PREGUNTAS:${qs}
+IMPORTANTE: acepta paráfrasis y errores gramaticales o de ortografía menores si la información es correcta. Evalúa la comprensión, no la gramática.
 
-  // LISTENING PERSONALIZED MSG
-  const lTotal=laScore+lbScore;
-  const lPct=Math.round((lTotal/12)*100);
-  const lMsg=lPct>=83?
-    `🌟 ¡Excelente resultado en Listening! Obtuviste ${lTotal}/12 (${lPct}%). Tu comprensión auditiva es muy buena.`:
-    lPct>=58?`💪 Buen trabajo en Listening. Obtuviste ${lTotal}/12 (${lPct}%). Revisa las preguntas que fallaste para reforzar el Present Perfect.`:
-    `📚 Listening necesita práctica. Obtuviste ${lTotal}/12 (${lPct}%). Enfócate en identificar expresiones de tiempo con <em>for</em> y <em>since</em>.`;
-  const lClass=lPct>=83?'msg-great':lPct>=58?'msg-good':'msg-low';
-  html+=`<div class="personalized-msg ${lClass}">${lMsg}</div>`;
-
-  // LISTENING A FEEDBACK
-  html+=`<div class="feedback-part">
-    <div class="feedback-part-header listening">🎧 Listening — Part A (Matching)</div>`;
-  const laIds=['la_s1','la_s2','la_s3','la_s4','la_s5'];
-  laIds.forEach((id,idx)=>{
-    const userVal=g(id);
-    const correctVal=LA_KEY[id];
-    const isOk=userVal===correctVal;
-    const userText=userVal?`${userVal} — ${LA_OPTIONS[userVal]}`:'(sin respuesta)';
-    const correctText=`${correctVal} — ${LA_OPTIONS[correctVal]}`;
-    html+=`<div class="feedback-item ${isOk?'fb-correct':'fb-incorrect'}">
-      <div class="fi-label"><strong>Speaker ${idx+1}</strong><span class="tag ${isOk?'ok':'err'}">${isOk?'✅ Correcto':'❌ Incorrecto'}</span></div>
-      <div class="fi-student">Tu respuesta: ${userText}</div>
-      ${!isOk?`<div class="fi-correct">✓ Respuesta correcta: ${correctText}</div>`:''}
-    </div>`;
-  });
-  html+=`</div>`;
-
-  // LISTENING B FEEDBACK
-  html+=`<div class="feedback-part">
-    <div class="feedback-part-header listening">🎧 Listening — Part B (MC)</div>`;
-  const lbIds=['lb_q1','lb_q2','lb_q3','lb_q4','lb_q5','lb_q6','lb_q7'];
-  const lbLabels={lb_q1:'Int. 1 — P1',lb_q2:'Int. 1 — P2',lb_q3:'Int. 2 — P3',lb_q4:'Int. 3 — P4',lb_q5:'Int. 4 — P5',lb_q6:'Int. 4 — P6',lb_q7:'Int. 5 — P7'};
-  lbIds.forEach((id,idx)=>{
-    const userVal=getRadio(id);
-    const correctVal=LB_KEY[id];
-    const isOk=userVal===correctVal;
-    const opts=LB_OPTIONS[id];
-    const userText=userVal?`${userVal}) ${opts[userVal]}`:'(sin respuesta)';
-    const correctText=`${correctVal}) ${opts[correctVal]}`;
-    html+=`<div class="feedback-item ${isOk?'fb-correct':'fb-incorrect'}">
-      <div class="fi-label"><strong>${lbLabels[id]}</strong> — ${LB_QUESTIONS[id]}<span class="tag ${isOk?'ok':'err'}">${isOk?'✅ Correcto':'❌ Incorrecto'}</span></div>
-      <div class="fi-student">Tu respuesta: ${userText}</div>
-      ${!isOk?`<div class="fi-correct">✓ Respuesta correcta: ${correctText}</div>`:''}
-    </div>`;
-  });
-  html+=`</div>`;
-
-  // READING PERSONALIZED MSG
-  const rTotal=(raDone?raScore:0)+rbScore;
-  const rMaxDisplay=raDone?12:6;
-  const rPct=raDone?Math.round((rTotal/12)*100):Math.round((rbScore/6)*100);
-  const rMsg=rPct>=83?
-    `🌟 ¡Excelente resultado en Reading! Comprendes muy bien los textos escritos.`:
-    rPct>=58?`💪 Buen trabajo en Reading. Revisa las preguntas que fallaste para reforzar la comprensión de <em>used to</em> y el uso de <em>should</em>.`:
-    `📚 Reading necesita práctica. Enfócate en identificar el uso de <em>used to</em> en el texto y en relacionar situaciones con consejos que usen <em>should</em>.`;
-  const rClass=rPct>=83?'msg-great':rPct>=58?'msg-good':'msg-low';
-  html+=`<div class="personalized-msg ${rClass}">${rMsg}</div>`;
-
-  // READING A FEEDBACK
-  html+=`<div class="feedback-part">
-    <div class="feedback-part-header reading">📖 Reading — Part A (Preguntas abiertas)</div>`;
-  for(let i=1;i<=6;i++){
-    const ans=g(`ra_q${i}`)||'(sin respuesta)';
-    const raGScore=raDone?(parseFloat(g(`ra_g${i}`))||0):null;
-    html+=`<div class="feedback-item fb-correct">
-      <div class="fi-label"><strong>Pregunta ${i}</strong><span class="tag info">📝 Gemini</span></div>
-      <div class="fi-student">Tu respuesta: ${ans}</div>
-      <div class="fi-model">✓ Respuesta modelo: ${RA_MODEL[i-1]}</div>
-      ${raDone?`<div class="fi-correct">Puntaje: ${raGScore} / 1 pt</div>`:'<div class="fi-tip">Puntaje: pendiente de revisión Gemini</div>'}
-    </div>`;
-  }
-  html+=`</div>`;
-
-  // READING B FEEDBACK
-  html+=`<div class="feedback-part">
-    <div class="feedback-part-header reading">📖 Reading — Part B (Matching)</div>`;
-  const rbIds=['rb_s1','rb_s2','rb_s3','rb_s4','rb_s5','rb_s6'];
-  rbIds.forEach((id,idx)=>{
-    const userVal=g(id);
-    const correctVal=RB_KEY[id];
-    const isOk=userVal===correctVal;
-    const userText=userVal?RB_OPTIONS[userVal]:'(sin respuesta)';
-    const correctText=RB_OPTIONS[correctVal];
-    html+=`<div class="feedback-item ${isOk?'fb-correct':'fb-incorrect'}">
-      <div class="fi-label"><strong>Situación ${idx+1}</strong> — ${RB_SITUATIONS[id]}<span class="tag ${isOk?'ok':'err'}">${isOk?'✅ Correcto':'❌ Incorrecto'}</span></div>
-      <div class="fi-student">Tu respuesta: ${userText||'(sin respuesta)'}</div>
-      ${!isOk?`<div class="fi-correct">✓ Respuesta correcta: ${correctText}</div>`:''}
-    </div>`;
-  });
-  html+=`</div>`;
-
-  fc.innerHTML=html;
-}
-
-// ══════════════════════════════════════════════════════════
-//  FILTER FEEDBACK
-// ══════════════════════════════════════════════════════════
-function filterFeedback(type){
-  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll(`.filter-tab[data-filter="${type}"]`).forEach(t=>t.classList.add('active'));
-  document.querySelectorAll('.feedback-item').forEach(item=>{
-    if(type==='all')item.classList.remove('hidden');
-    else if(type==='incorrect')item.classList.toggle('hidden',item.classList.contains('fb-correct'));
-    else item.classList.toggle('hidden',item.classList.contains('fb-incorrect'));
-  });
-}
-
-// ══════════════════════════════════════════════════════════
-//  GEMINI PROMPTS
-// ══════════════════════════════════════════════════════════
-function copyForGemini(section){
-  let geminiText='';
-
-  if(section==='writing'){
-    const wText=g('writingText').trim();
-    if(!wText){
-      alert('⚠️ Escribe tu texto antes de copiar el prompt de Gemini.');
-      return;
-    }
-    geminiText=`Eres un profesor experto en inglés como lengua extranjera para nivel B1 (CEFR).
-
-Un estudiante de nivel B1 recibió esta tarea:
-"Write about someone important in your life. Your text should be at least 80 words. Include: where they were born and grew up, what their life was like when they were young, their education and jobs, an important event or achievement, and what their life is like now."
-
-El texto del estudiante es:
-"${wText}"
-
----
-
-ENTREGA TU RESPUESTA EN DOS BLOQUES SEPARADOS Y CLARAMENTE MARCADOS. NO mezcles el contenido de los bloques.
-
----
+${FORMAT_NOTE}
 
 🔷 BLOQUE 1 — EVALUACIÓN
+1. COMENTARIO GENERAL: 2–3 frases sobre la comprensión lectora del estudiante.
+2. EVALUACIÓN POR PREGUNTA: para cada pregunta, el puntaje y una justificación breve.
+3. SUGERENCIAS DE MEJORA: 2–3 sugerencias concretas.
+4. MENSAJE DE CIERRE: una frase motivadora breve.
 
-Entrega todo en español, excepto los errores que se muestran en inglés.
+🔶 BLOQUE 2 — PUNTAJES PARA INGRESAR EN EL MOCK TEST
+Pregunta 1 (máx. 1 pt): ___
+Pregunta 2 (máx. 1 pt): ___
+Pregunta 3 (máx. 1 pt): ___
+Pregunta 4 (máx. 1 pt): ___
+Pregunta 5 (máx. 1 pt): ___
+Pregunta 6 (máx. 1 pt): ___
+─────────────────────────
+Total sugerido: ___ / 6 pts
 
-1. ⚠️ ADVERTENCIA DE AUTENTICIDAD
-Indica si el texto muestra señales de uso de IA o traductor: vocabulario demasiado avanzado para B1, ausencia de errores típicos de hablantes de español, conectores muy sofisticados, o coherencia inusualmente alta. Si no hay señales, escribe: "No se detectan señales de uso de IA o traductor."
-
-2. COMENTARIO GENERAL
-Una evaluación general del texto en 3 o 4 oraciones.
-
-3. EVALUACIÓN POR CRITERIO
-Para cada criterio indica el nivel logrado, el puntaje sugerido y una justificación breve.
-
-CRITERIO 1 — Coherencia y extensión (máx. 4 pts):
-- Totalmente Logrado (4 pts): mínimo 80 palabras, todas las ideas requeridas, coherente con el estímulo.
-- Logrado (3.2 pts): entre 60 y 79 palabras, todas las ideas, coherente.
-- Parcialmente Logrado (2.4 pts): entre 40 y 59 palabras, cobertura parcial y/o alguna idea incoherente.
-- Insuficientemente Logrado (1.2 pts): entre 20 y 39 palabras, baja cobertura y/o incoherencia general.
-- No Logrado (0 pts): menos de 20 palabras y/o sin relación con el estímulo.
-
-CRITERIO 2 — Vocabulario (máx. 3 pts):
-- Totalmente Logrado (3 pts): 6 o más palabras del vocabulario aprendido usadas correctamente.
-- Logrado (2.4 pts): al menos 5 palabras correctas.
-- Parcialmente Logrado (1.8 pts): al menos 4 palabras correctas.
-- Insuficientemente Logrado (0.9 pts): al menos 3 palabras correctas.
-- No Logrado (0 pts): 2 o menos palabras correctas.
-
-CRITERIO 3 — Gramática (máx. 3 pts):
-- Totalmente Logrado (3 pts): oraciones correctas, máximo 1 error sin impacto en comprensión.
-- Logrado (2.4 pts): mayoría correctas, entre 2 y 3 errores sin impacto.
-- Parcialmente Logrado (1.8 pts): entre 4 y 5 errores, dificulta parcialmente la comprensión.
-- Insuficientemente Logrado (0.9 pts): entre 6 y 7 errores, dificulta significativamente.
-- No Logrado (0 pts): 8 o más errores.
-
-CRITERIO 4 — Ortografía (máx. 2 pts):
-- Totalmente Logrado (2 pts): máximo 2 errores ortográficos.
-- Logrado (1.6 pts): entre 3 y 4 errores.
-- Parcialmente Logrado (1.2 pts): entre 5 y 6 errores.
-- Insuficientemente Logrado (0.6 pts): entre 7 y 8 errores.
-- No Logrado (0 pts): 9 o más errores.
-
-4. ERRORES ESPECÍFICOS
-Lista los errores encontrados. Muestra cada error en inglés con su corrección. Ejemplo:
-   ✗ "He have a dog" → ✓ "He has a dog"
-
-5. SUGERENCIAS DE MEJORA
-2 o 3 sugerencias concretas para mejorar el texto.
-
-6. MENSAJE DE CIERRE
-Una frase breve de motivación para el estudiante.
-
----
-
-🔶 BLOQUE 2 — RESUMEN DE PUNTAJE
-
-Completa esta tabla con los puntajes sugeridos en el Bloque 1:
-
-Criterio 1 — Coherencia y extensión: ___ / 4 pts
-Criterio 2 — Vocabulario:            ___ / 3 pts
-Criterio 3 — Gramática:              ___ / 3 pts
-Criterio 4 — Ortografía:             ___ / 2 pts
-─────────────────────────────────────────────────
-Total sugerido:                       ___ / 12 pts`;
-
-  }else if(section==='ra'){
-    const answers=[1,2,3,4,5,6].map(i=>g(`ra_q${i}`)||'(sin respuesta)');
-    geminiText=`Eres un profesor experto en inglés como lengua extranjera para nivel B1 (CEFR).
-
-Un estudiante de nivel B1 ha respondido preguntas abiertas sobre el siguiente texto:
-
-TEXTO LEÍDO: Lucas Mendoza describe su experiencia al mudarse de Ecuador a Madrid a los 14 años. En Madrid, asistía a una escuela enorme y ruidosa (más de 800 estudiantes, 35 por clase) y se sentía perdido en el almuerzo porque no sabía dónde sentarse ni con quién hablar. En Ecuador, su escuela era pequeña (20 estudiantes), conocía a todos, sus profesores lo conocían desde pequeño y era bueno en la mayoría de las asignaturas. Solía jugar fútbol en la playa y nadar en el mar con sus amigos. En Madrid, disfrutaba la clase de Educación Física porque la profesora era amable y lo invitó al equipo de básquetbol. También le gustaba Literatura porque era buen lector y recibía buenas calificaciones.
-
-SISTEMA DE PUNTAJE:
-- 1 pt completo: información correcta + estructura mínima (sujeto + verbo + complemento)
-- 0.5 pts parcial: información correcta pero respuesta incompleta (sin verbo, solo palabras clave, muy breve)
-- 0 incorrecto: información incorrecta o sin respuesta
-
-PREGUNTA 1 (máx. 1 pt): How was Lucas's new school in Madrid? Give two details.
-Respuesta modelo: It was enormous / very noisy / more than 800 students / 35 students per class / cold weather (cualquier 2 detalles).
-Respuesta parcial: Solo 1 detalle correcto.
-Respuesta del estudiante: "${answers[0]}"
-
-PREGUNTA 2 (máx. 1 pt): Why did Lucas use to feel lost at lunchtime in Madrid?
-Respuesta modelo: Because he didn't know where to sit or who to talk to.
-Respuesta parcial: Solo una parte (where to sit OR who to talk to).
-Respuesta del estudiante: "${answers[1]}"
-
-PREGUNTA 3 (máx. 1 pt): Describe Lucas's school in Ecuador. Why did he feel comfortable there?
-Respuesta modelo: His school was small (only 20 students) / he knew everyone / teachers had known him for years / he was good at subjects.
-Respuesta parcial: Solo describe la escuela O solo da la razón de su comodidad.
-Respuesta del estudiante: "${answers[2]}"
-
-PREGUNTA 4 (máx. 1 pt): Name two activities Lucas used to do with his friends in Ecuador.
-Respuesta modelo: He used to play football on the beach / go swimming in the sea (ambas para puntaje completo).
-Respuesta parcial: Solo una actividad correcta.
-Respuesta del estudiante: "${answers[3]}"
-
-PREGUNTA 5 (máx. 1 pt): How did Lucas's PE teacher help him at his new school in Madrid?
-Respuesta modelo: She noticed he was good at sports and invited him to join the basketball team.
-Respuesta parcial: Solo una parte de la respuesta.
-Respuesta del estudiante: "${answers[4]}"
-
-PREGUNTA 6 (máx. 1 pt): Why was Lucas good at Spanish Literature?
-Respuesta modelo: He was already a good reader / the teacher gave him very positive marks on his written work.
-Respuesta parcial: Solo una razón.
-Respuesta del estudiante: "${answers[5]}"
-
-POR FAVOR ENTREGA (todo en español, excepto ejemplos en inglés):
-
-Para cada pregunta:
-- Análisis breve de la respuesta del estudiante
-- Puntaje sugerido con justificación
-- Si es parcial: explica qué faltó para el puntaje completo
-
-Al final, entrega un resumen de puntajes:
-P1: ___ / 1 | P2: ___ / 1 | P3: ___ / 1 | P4: ___ / 1 | P5: ___ / 1 | P6: ___ / 1 | Total: ___ / 6`;
+Todo el feedback debe estar en español. Muestra los errores o frases del estudiante en inglés.`;
   }
+  const txt=g("writingText").trim(),n=countWords(txt);
+  return `Eres un evaluador de inglés. Evalúa el texto escrito por un estudiante de nivel B1 (CEFR).
 
-  navigator.clipboard.writeText(geminiText).catch(()=>{});
+TAREA DEL ESTUDIANTE:
+Escribir una biografía de una persona famosa que esté viva O de alguien que el estudiante conoce bien (un familiar o un amigo, también vivo), de al menos 80 palabras, en tercera persona (he / she / they). Debía considerar: dónde nació y creció, su infancia, su educación y trabajos, sus logros y otros eventos importantes, y su vida actual. Debía usar los tiempos verbales adecuados (por ejemplo past simple, used to, present simple y present perfect con for / since).
+
+TEXTO DEL ESTUDIANTE (${n} palabras):
+"""
+${txt}
+"""
+
+RÚBRICA COMPLETA (12 puntos en total):
+${rubricTextForGemini()}
+
+REGLAS DE APLICACIÓN DE LA RÚBRICA:
+- Coherencia y Extensión: usa el nivel MÁS BAJO entre el que corresponde por número de palabras y el que corresponde por número de ideas desarrolladas. Para llegar a 6 ideas el estudiante debe desarrollar algo más que los 5 puntos de la guía (un detalle, una anécdota o una razón).
+- Vocabulario: cuenta palabras del vocabulario estudiado relacionado con la vida de una persona (por ejemplo: ${VOCAB_LIFE}). No exijas palabras exactas de esta lista.
+- Gramática: cuenta los errores gramaticales por separado de los ortográficos. 0 o 1 error = Totalmente Logrado.
+- Ortografía: 0 a 2 errores = Totalmente Logrado.
+- Verifica que el texto esté en tercera persona y trate de una persona viva. Si no, indícalo en el comentario general.
+
+${FORMAT_NOTE}
+
+🔷 BLOQUE 1 — EVALUACIÓN
+1. ⚠️ ADVERTENCIA DE AUTENTICIDAD (debe aparecer PRIMERO): indica si el texto muestra señales de uso de IA o traductor (vocabulario demasiado avanzado para B1, ausencia de errores típicos de hispanohablantes, fluidez o coherencia inusualmente altas, conectores avanzados o expresiones idiomáticas). Si no hay señales, escribe: "No se detectan señales de uso de IA o traductor."
+2. COMENTARIO GENERAL: 3–4 frases con la evaluación global del texto.
+3. EVALUACIÓN POR CRITERIO: para cada criterio, el nivel alcanzado, el puntaje sugerido y una justificación breve.
+4. ERRORES ESPECÍFICOS: lista de errores en inglés con su corrección: ✗ "error" → ✓ "corrección".
+5. SUGERENCIAS DE MEJORA: 2–3 sugerencias concretas.
+6. MENSAJE DE CIERRE: una frase motivadora breve.
+
+🔶 BLOQUE 2 — RESUMEN DE PUNTAJE / PUNTAJES PARA INGRESAR EN EL MOCK TEST
+Criterio 1 — Coherencia y Extensión: ___ / 4 pts
+Criterio 2 — Vocabulario: ___ / 3 pts
+Criterio 3 — Gramática: ___ / 3 pts
+Criterio 4 — Ortografía: ___ / 2 pts
+─────────────────────────────────
+Total sugerido: ___ / 12 pts
+
+Todo el feedback debe estar en español. Muestra los errores del estudiante en inglés.`;
+}
+function copyForGemini(section){
+  let hasContent=false,warnEl=null;
+  if(section==="ra"){hasContent=[1,2,3,4,5,6].some(i=>g("ra_ans"+i).trim()!=="");warnEl=document.getElementById("geminiWarnRA");}
+  else{hasContent=g("writingText").trim()!=="";warnEl=document.getElementById("geminiWarnW");}
+  if(warnEl){if(!hasContent){warnEl.classList.add("visible");return;}else warnEl.classList.remove("visible");}
+  const geminiText=buildPrompt(section);
+  copyToClipboard(geminiText);
   showGeminiModal();
 }
 
-// ══════════════════════════════════════════════════════════
-//  MODAL
-// ══════════════════════════════════════════════════════════
-function showGeminiModal(){
-  document.getElementById('geminiModal').classList.add('active');
+/* ═══════════ BLANKS + CALCULATE ═══════════ */
+function checkBlanksAndCalculate(){
+  const blanks=[];
+  for(let i=1;i<=5;i++)if(!g("la_s"+i))blanks.push({label:"Listening A — Hablante "+i,targetId:"la_s"+i});
+  LB.forEach(q=>{if(!getRadio("lb_q"+q.n))blanks.push({label:"Listening B — Pregunta "+q.n,targetId:"lb_q"+q.n+"_a"});});
+  for(let i=1;i<=6;i++)if(!g("ra_ans"+i).trim())blanks.push({label:"Reading A — Pregunta "+i,targetId:"ra_ans"+i});
+  for(let i=1;i<=6;i++)if(!g("rb_s"+i))blanks.push({label:"Reading B — Situación "+i,targetId:"rb_s"+i});
+  if(!g("writingText").trim())blanks.push({label:"Writing — Biografía",targetId:"writingText"});
+  const w=document.getElementById("blankWarning");
+  if(!blanks.length){w.style.display="none";calculateFinalGrade();return;}
+  const list=document.getElementById("blankList");list.innerHTML="";
+  blanks.forEach(b=>{
+    const li=document.createElement("li"),btn=document.createElement("button");
+    btn.className="blank-link";btn.textContent=b.label;btn.onclick=()=>scrollToId(b.targetId);
+    li.appendChild(btn);list.appendChild(li);
+  });
+  w.style.display="block";w.scrollIntoView({behavior:"smooth",block:"center"});
 }
-function closeGeminiModal(){
-  document.getElementById('geminiModal').classList.remove('active');
+let autoGeminiDone=false,partialMode=false;
+let autoLA=0,autoLB=0,autoRB=0,raScore=0,wScore=0;
+const raGemini={};
+function applyBlankZeros(){
+  for(let i=1;i<=6;i++){
+    const ans=document.getElementById("ra_ans"+i),sc=document.getElementById("ra_gscore"+i);
+    if(!ans||!sc)continue;
+    const row=sc.closest(".gr-row");
+    if(!ans.value.trim()){
+      sc.value=0;sc.classList.add("locked");sc.readOnly=true;
+      if(!row.querySelector(".blank-badge")){const b=document.createElement("span");b.className="blank-badge";b.textContent="✗ Sin respuesta — 0 pts";row.appendChild(b);}
+    }else{sc.classList.remove("locked");sc.readOnly=false;const b=row.querySelector(".blank-badge");if(b)b.remove();}
+  }
+  if(!g("writingText").trim()){
+    RUBRIC.forEach(c=>{const r=document.getElementById(c.id+"_4");if(r){r.checked=true;}document.querySelectorAll('input[name="'+c.id+'"]').forEach(x=>{x.disabled=true;});});
+    updateRubric();
+  }else{
+    document.querySelectorAll('#rubricBody input[type=radio]').forEach(x=>{x.disabled=false;});
+  }
+}
+function buildGemRA(){
+  document.getElementById("gemRA").innerHTML="<strong>📖 Reading A:</strong>"+RA_Q.map((q,i)=>`<div class="gr-row"><label for="ra_gscore${i+1}">📝 Pregunta ${i+1} (máx. 1 pt)</label><input type="number" id="ra_gscore${i+1}" min="0" max="1" step="0.5" placeholder="0–1"></div>`).join("");
+}
+function calculateFinalGrade(){
+  autoLA=0;autoLB=0;autoRB=0;
+  for(let i=1;i<=5;i++)if(g("la_s"+i)===LA_KEY[i])autoLA++;
+  LB.forEach(q=>{if(getRadio("lb_q"+q.n)===q.k)autoLB++;});
+  for(let i=1;i<=6;i++)if(g("rb_s"+i)===RB_KEY[i])autoRB++;
+  const name=g("studentName").trim();
+  document.getElementById("resultsTitle").textContent=name?"📊 Resultados de: "+name:"📊 Resultados del Mock Test";
+  document.getElementById("results").style.display="block";
+  document.getElementById("laDisplay").textContent=autoLA+" / 5 pts";
+  document.getElementById("lbDisplay").textContent=autoLB+" / 7 pts";
+  document.getElementById("rbDisplay").textContent=autoRB+" / 6 pts";
+  if(autoGeminiDone){finalizeScores();return;}
+  document.getElementById("raDisplay").textContent="— / 6 pts";
+  document.getElementById("wDisplay").textContent="— / 12 pts";
+  document.getElementById("totalDisplay").textContent="pendiente";
+  const gd=document.getElementById("gradeDisplay");gd.textContent="⏳ Nota pendiente";gd.className="grade-val pending";
+  document.getElementById("gradeMsg").textContent="Falta la revisión de Reading A y Writing con Gemini.";
+  if(!document.getElementById("ra_gscore1"))buildGemRA();
+  document.getElementById("geminiBlock").style.display="block";
+  document.getElementById("partialBar").style.display="block";
+  applyBlankZeros();
+  buildFeedback();
+  const fs=document.getElementById("feedbackSection");
+  fs.style.display=partialMode?"block":"none";
+  document.getElementById("filterTabs").style.display="none";
+  document.getElementById("results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function togglePartialFeedback(){
+  partialMode=!partialMode;
+  document.getElementById("feedbackSection").style.display=partialMode?"block":"none";
+  document.getElementById("partialNote").style.display=partialMode?"block":"none";
+  document.getElementById("partialBtn").textContent=partialMode?"🙈 Ocultar retroalimentación parcial":"👁 Ver retroalimentación parcial";
+  if(partialMode)buildFeedback();
+}
+function updateWithGeminiScores(force){
+  applyBlankZeros();
+  const missing=[];
+  for(let i=1;i<=6;i++){const e=document.getElementById("ra_gscore"+i);if(e&&e.value==="")missing.push("Reading A — Pregunta "+i);}
+  RUBRIC.forEach(c=>{if(getRadio(c.id)==="")missing.push("Writing — "+c.name.replace(/^\d\.\s*/,""));});
+  const warn=document.getElementById("gbWarn");
+  if(missing.length&&!force){
+    warn.innerHTML="⚠️ <strong>Faltan puntajes de Gemini:</strong> "+missing.join(", ")+".<br><button class=\"mini-btn\" onclick=\"updateWithGeminiScores(true)\">Continuar de todos modos →</button>";
+    warn.style.display="block";return;
+  }
+  warn.style.display="none";
+  let s=0;
+  for(let i=1;i<=6;i++){const e=document.getElementById("ra_gscore"+i);let v=parseFloat(e&&e.value);if(isNaN(v))v=0;v=Math.max(0,Math.min(1,v));raGemini[i]=v;s+=v;}
+  raScore=r1(s);wScore=rubricScore();
+  autoGeminiDone=true;
+  finalizeScores();
+}
+function finalizeScores(){
+  raScore=0;for(let i=1;i<=6;i++)raScore+=(raGemini[i]||0);raScore=r1(raScore);
+  wScore=rubricScore();
+  const total=r1(autoLA+autoLB+raScore+autoRB+wScore);
+  document.getElementById("raDisplay").textContent=raScore+" / 6 pts";document.getElementById("raDisplay").classList.remove("pending");
+  document.getElementById("wDisplay").textContent=wScore+" / 12 pts";document.getElementById("wDisplay").classList.remove("pending");
+  document.getElementById("totalDisplay").textContent=total+" / "+MAX_TOTAL+" pts";
+  const grade=calcGrade(total,MAX_TOTAL);
+  const gd=document.getElementById("gradeDisplay");gd.textContent=grade.toFixed(1);gd.className="grade-val";
+  const msg=grade>=5.5?"🌟 ¡Excelente trabajo!":grade>=4?"👍 Aprobado. Revisa los puntos de mejora.":"📚 Aún necesitas practicar. Revisa la retroalimentación.";
+  document.getElementById("gradeMsg").textContent=msg;
+  document.getElementById("geminiBlock").style.display="none";
+  document.getElementById("partialBar").style.display="none";
+  document.getElementById("partialNote").style.display="none";
+  partialMode=false;
+  buildFeedback();
+  document.getElementById("feedbackSection").style.display="block";
+  document.getElementById("filterTabs").style.display="flex";
+  document.getElementById("results").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-// ══════════════════════════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════════════════════════
-window.addEventListener('DOMContentLoaded',()=>{
-  loadSaved();
-  updateWordCount();
-  updateRubric();
-  updateProgress();
-});
+/* ═══════════ FEEDBACK ═══════════ */
+function buildSectionMsg(correct,total,tips){
+  const pct=total?correct/total:0;let level,title,intro;
+  if(pct>=0.83){level="great";title="🌟 ¡Excelente!";intro=" Tu desempeño en esta sección fue sobresaliente.";}
+  else if(pct>=0.58){level="good";title="👍 Buen trabajo";intro=" Estás en el camino correcto. Revisa los siguientes puntos:";}
+  else{level="needswork";title="📚 Necesitas practicar más";intro=" Presta atención a las siguientes áreas:";}
+  const th=tips.length?`<ul class="msg-tips">${tips.map(t=>`<li>${t}</li>`).join("")}</ul>`:"";
+  return `<div class="section-feedback-msg ${level}"><strong>${title}</strong>${intro}${th}</div>`;
+}
+function dots(items){return `<div class="summary-dots">`+items.map((c,i)=>`<div class="dot ${c}" title="Pregunta ${i+1}"></div>`).join("")+`</div>`;}
+function fbItem(ok,label,studentTxt,correctTxt,exp,extra){
+  return `<div class="feedback-item ${ok?"fb-correct":"fb-incorrect"}"><div class="fq">${label} <span class="tag ${ok?"correct-tag":"incorrect-tag"}">${ok?"✅ Correcto":"❌ Incorrecto"}</span></div><div class="student-ans">Tu respuesta: ${studentTxt||"<em>(en blanco)</em>"}</div>${ok?"":`<div class="correct-ans">Respuesta correcta: ${correctTxt}</div>`}<div class="explanation">${exp}</div>${extra||""}</div>`;
+}
+function buildFeedback(){
+  /* Listening A */
+  const laOk=[],laItems=[];
+  for(let i=1;i<=5;i++){const a=g("la_s"+i),ok=a===LA_KEY[i];laOk.push(ok?"correct":"incorrect");
+    const stTxt=a?a+") "+LA_OPTS.find(o=>o[0]===a)[1]:"";const cTxt=LA_KEY[i]+") "+LA_OPTS.find(o=>o[0]===LA_KEY[i])[1];
+    laItems.push(fbItem(ok,"Hablante "+i,stTxt,cTxt,LA_EXP[i]));}
+  const laCorrect=laOk.filter(x=>x==="correct").length;
+  /* Listening B */
+  const lbOk=[],lbItems=[];
+  LB.forEach(q=>{const a=getRadio("lb_q"+q.n),ok=a===q.k;lbOk.push(ok?"correct":"incorrect");
+    const idx=s=>["a","b","c"].indexOf(s);
+    lbItems.push(fbItem(ok,"Pregunta "+q.n+" — "+q.stem,a?a+") "+q.o[idx(a)]:"",q.k+") "+q.o[idx(q.k)],q.exp));});
+  const lbCorrect=lbOk.filter(x=>x==="correct").length;
+  /* Listening tips */
+  const lt=[];
+  if(laCorrect<5){lt.push("Listening A: escucha la <strong>idea principal</strong> de cada hablante. Siempre mencionan algo que <em>no</em> es su motivo principal (por ejemplo «I like the people at work, but…»): espera el «but» o el final de la historia antes de elegir. Recuerda que sobra una opción.");}
+  const wrongLB=LB.filter((q,i)=>lbOk[i]==="incorrect").map(q=>q.n);
+  if(wrongLB.some(n=>[1,2,4,5,7].includes(n)))lt.push("Listening B: distingue <strong>for + período de tiempo</strong> (for five years) de <strong>since + punto de inicio</strong> (since I was a child, since Monday). Escucha cuál de los dos usa la persona.");
+  if(wrongLB.some(n=>[3,6].includes(n)))lt.push("Listening B: <strong>ago</strong> = «hace». Marca cuándo ocurrió una acción terminada (past simple): «three years ago I moved…», «eight months ago I came…».");
+  if(wrongLB.some(n=>[1,3,4].includes(n)))lt.push("Listening B: cuidado con los números parecidos (eight / eighteen, five / fifteen) y con las edades: «when I was thirty» no es lo mismo que «for five years».");
+  const lCorrect=laCorrect+lbCorrect;
+  const listeningHtml=buildSectionMsg(lCorrect,12,lt)+
+    `<div class="feedback-part" data-section="listening"><div class="feedback-part-header listening">🎧 Listening A — ${laCorrect}/5</div>${laItems.join("")}</div>`+
+    `<div class="feedback-part" data-section="listening"><div class="feedback-part-header listening">🎧 Listening B — ${lbCorrect}/7</div>${lbItems.join("")}</div>`;
+  document.getElementById("fbListening").innerHTML=listeningHtml;
+  /* Reading B */
+  const rbOk=[],rbItems=[];
+  for(let i=1;i<=6;i++){const a=g("rb_s"+i),ok=a===RB_KEY[i];rbOk.push(ok?"correct":"incorrect");
+    rbItems.push(fbItem(ok,"Situación "+i,a?a+") "+RB_TIPS[a].split(".")[0]+"…":"",RB_KEY[i]+") "+RB_TIPS[RB_KEY[i]].split(".")[0]+"…",RB_EXP[i]+(i===1?` El consejo ${RB_EXTRA}) sobraba.`:"")));}
+  const rbCorrect=rbOk.filter(x=>x==="correct").length;
+  const rt=[];
+  if(rbCorrect<6)rt.push("Reading B: une cada situación con el consejo que resuelve <strong>ese problema</strong>, no por palabras repetidas (tired, buy y friends aparecen en varias opciones). Los consejos usan <strong>should / make sure / try to</strong>: lee qué hay que hacer y comprueba que responde a la situación.");
+  /* Reading A (Gemini) + messages */
+  let raHtml="",raDots=[];
+  if(autoGeminiDone){
+    const items=RA_Q.map((q,i)=>{const v=raGemini[i+1]||0,a=g("ra_ans"+(i+1)).trim();
+      const ok=v>=1;raDots.push(v>=1?"correct":v>0?"partial":"incorrect");
+      const tag=v>=1?"correct-tag":v>0?"partial-tag":"incorrect-tag",lab=v>=1?"✅ Correcto":v>0?"◐ Parcial":"❌ Incorrecto";
+      return `<div class="feedback-item ${ok?"fb-correct":"fb-incorrect"}"><div class="fq">Pregunta ${i+1} — ${esc(q.q)} <span class="tag ${tag}">${lab} · ${v}/1</span></div><div class="student-ans">Tu respuesta: ${a?esc(a):"<em>(en blanco)</em>"}</div><div class="suggested-ans">Respuesta modelo: ${esc(q.m)}</div><div class="explanation">${q.exp}</div></div>`;});
+    raHtml=`<div class="feedback-part" data-section="reading"><div class="feedback-part-header reading">📖 Reading A — ${raScore}/6</div>${items.join("")}</div>`;
+    const wrongRA=RA_Q.map((q,i)=>i+1).filter(n=>(raGemini[n]||0)<1);
+    if(wrongRA.some(n=>[2,3,4].includes(n)))rt.push("Reading A: en las preguntas con <strong>use to</strong>, busca en el texto las frases con «used to» y responde con <strong>used to + verbo</strong> (They used to help…).");
+    if(wrongRA.some(n=>[1,6].includes(n)))rt.push("Reading A: cuando la pregunta es «How did he feel? Why?», responde con la emoción <strong>+ because + la razón</strong> (He felt sad because…).");
+    if(wrongRA.includes(5))rt.push("Reading A: para «Why did everything change?», busca el hecho en <strong>past simple</strong> que causó el cambio (got sick, moved).");
+  }
+  const rCorrectCount=rbCorrect+(autoGeminiDone?raScore:0),rTotal=autoGeminiDone?12:6;
+  const readingHtml=buildSectionMsg(rCorrectCount,rTotal,rt)+raHtml+
+    `<div class="feedback-part" data-section="reading"><div class="feedback-part-header reading">📖 Reading B — ${rbCorrect}/6</div>${rbItems.join("")}</div>`;
+  document.getElementById("fbReading").innerHTML=readingHtml;
+  /* Writing */
+  let wHtml="";
+  if(autoGeminiDone){
+    const n=countWords(g("writingText")),txt=g("writingText").trim();
+    const rows=RUBRIC.map(c=>{const v=getRadio(c.id);const lv=c.lv.find(l=>String(l[1])===v);return `<div>• <strong>${c.name.replace(/^\d\.\s*/,"")}:</strong> ${lv?lv[0]+" ("+lv[1]+"/"+c.max+" pts)":"sin evaluar (0/"+c.max+")"}</div>`;}).join("");
+    const wt=[];
+    const lvOf=id=>{const v=getRadio(id);return v===""?0:parseFloat(v);};
+    if(lvOf("rub1")<3.2)wt.push("Llega a 80 palabras y desarrolla al menos 6 ideas: nacimiento y crianza, infancia, estudios y trabajos, logros y vida actual, más un detalle o razón extra.");
+    if(lvOf("rub2")<2.4)wt.push("Usa más vocabulario de la unidad: born, grew up, moved, studied, got a job, achievement, married.");
+    if(lvOf("rub3")<2.4)wt.push("Revisa los tiempos: <strong>past simple</strong> para la historia, <strong>used to</strong> para la infancia, <strong>present simple</strong> para la vida actual y <strong>present perfect con for / since</strong> para lo que sigue hoy. Escribe en tercera persona (he / she / they).");
+    if(lvOf("rub4")<1.6)wt.push("Relee tu texto para corregir la ortografía antes de terminar.");
+    const ok=wScore/12>=0.6;
+    wHtml=buildSectionMsg(wScore,12,wt)+`<div class="feedback-part" data-section="writing"><div class="feedback-part-header writing">✍️ Writing — ${wScore}/12</div><div class="feedback-item ${ok?"fb-correct":"fb-incorrect"}"><div class="fq">Tu biografía (${n} palabras) <span class="tag info-tag">${wScore}/12 pts</span></div>${rows}<details class="fb-details"><summary>Ver mi texto</summary><p>${txt?esc(txt):"(en blanco)"}</p></details><details class="fb-details"><summary>Ver respuesta modelo (102 palabras)</summary><p>${esc(WR_MODEL)}</p></details></div></div>`;
+  }
+  document.getElementById("fbWriting").innerHTML=wHtml;
+  /* Summary cards */
+  const pend=`<div class="summary-card"><div class="sc-title">%T</div><div class="sc-score pending">—/%N</div></div>`;
+  let cards=`<div class="summary-card"><div class="sc-title">🎧 Listening A</div><div class="sc-score">${laCorrect}/5</div>${dots(laOk)}</div>`+
+   `<div class="summary-card"><div class="sc-title">🎧 Listening B</div><div class="sc-score">${lbCorrect}/7</div>${dots(lbOk)}</div>`+
+   (autoGeminiDone?`<div class="summary-card"><div class="sc-title">📖 Reading A</div><div class="sc-score">${raScore}/6</div>${dots(raDots)}</div>`:pend.replace("%T","📖 Reading A").replace("%N","6"))+
+   `<div class="summary-card"><div class="sc-title">📖 Reading B</div><div class="sc-score">${rbCorrect}/6</div>${dots(rbOk)}</div>`+
+   (autoGeminiDone?`<div class="summary-card"><div class="sc-title">✍️ Writing</div><div class="sc-score">${wScore}/12</div></div>`:pend.replace("%T","✍️ Writing").replace("%N","12"));
+  document.getElementById("summaryCards").innerHTML=cards;
+}
+function filterFeedback(type,evt){
+  document.querySelectorAll(".filter-tab").forEach(t=>t.classList.remove("active"));
+  if(evt&&evt.target)evt.target.classList.add("active");
+  const parts=document.querySelectorAll(".feedback-part"),items=document.querySelectorAll(".feedback-item");
+  if(type==="correct"||type==="incorrect"){
+    parts.forEach(p=>p.style.display="block");
+    items.forEach(it=>{const c=it.classList.contains("fb-correct");it.style.display=(type==="correct"?c:!c)?"":"none";});
+    parts.forEach(p=>{const vis=[...p.querySelectorAll(".feedback-item")].some(i=>i.style.display!=="none");p.style.display=vis?"block":"none";});
+  }else{
+    items.forEach(i=>i.style.display="");
+    parts.forEach(p=>{p.style.display=(type==="all"||p.dataset.section===type)?"block":"none";});
+  }
+}
+
+/* ═══════════ INIT ═══════════ */
+window.addEventListener("load",()=>{renderAll();loadSaved();updateWordCount();updateRubric();checkForAnswers();updateProgress();});
 </script>
 </body>
 </html>
